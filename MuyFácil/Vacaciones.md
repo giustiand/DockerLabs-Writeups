@@ -25,7 +25,12 @@ Empezamos con un escaneo de los puertos.
 
 Como podemos ver tenemos 2 puertos abiertos, el puerto 22 que corresponde al servicio SSH y el puerto 80 que corresponde a HTTP.  
 Probamos a ver que aparece si abrimos un explorador a la dirección http://172.17.0.2  
+
 ![V_2](https://github.com/giustiand/DockerLabs-Writeups/blob/main/MuyF%C3%A1cil/.images/Vacaciones/V_2.jpg)   
 Como podemos ver nos sale una pagina en blanco.
-Probamos a ver si hay algo "escondido" en el código de la pagina ( `Ctrl + U` ).
-![V_3](https://github.com/giustiand/DockerLabs-Writeups/blob/main/MuyF%C3%A1cil/.images/Vacaciones/V_3.jpg)   
+Probamos a ver si hay algo "escondido" en el código de la pagina ( `Ctrl + U` ).  
+
+![V_3](https://github.com/giustiand/DockerLabs-Writeups/blob/main/MuyF%C3%A1cil/.images/Vacaciones/V_3.jpg)  
+
+Tomamos nota de esta información y procedemos con la explotación.
+
