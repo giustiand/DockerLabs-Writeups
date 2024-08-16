@@ -21,9 +21,9 @@ Empezamos con un escaneo de los puertos.
 - `-vvv` : Verbose - Muestra toda la información
 
 # Resultado escaneo
-![BMS_1](https://github.com/giustiand/DockerLabs-Writeups/blob/main/MuyF%C3%A1cil/.images/BMS_1.jpg)
-El único puerto abierto es el 21, que corresponde al servicio FTP.
-Tenemos un servicio vsftpd con versión 2.3.4, podemos buscar alguna vulnerabilidad existente para este servicio con searchsploit.  
+![BMS_1](https://github.com/giustiand/DockerLabs-Writeups/blob/main/MuyF%C3%A1cil/.images/BMS_1.jpg)  
+El único puerto abierto es el 22, que corresponde al servicio SSH.
+Si hacemos una rápida busqueda en Google podemos observar que la versión de OpenSSH 7.7 tiene la vulnerabilidad de "user enumeration".
 
 `searchsploit vsftpd 2.3.4`  
 ```
