@@ -21,3 +21,4 @@ Empezamos con un escaneo de los puertos.
 - `-vvv` : Verbose - Muestra toda la información
 
 # Resultado escaneo
+![T_1](https://github.com/giustiand/DockerLabs-Writeups/blob/main/MuyF%C3%A1cil/.images/Trust/T_1.jpg)  
