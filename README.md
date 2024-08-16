@@ -1,4 +1,4 @@
-![B_1](https://github.com/giustiand/DockerLabs-Writeups/blob/main/MuyF%C3%A1cil/.images/BorazuwarahCTF/B_1.jpg)  
+![Logo](https://github.com/giustiand/DockerLabs-Writeups/blob/main/MuyF%C3%A1cil/.images/Logo.png)  
 
 # DockerLabs-Writeups
 En estos write-ups exploraremos la explotación de diversas máquinas vulnerables diseñadas para la práctica del hacking ético.  
