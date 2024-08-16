@@ -39,11 +39,11 @@ Tomamos nota de esta información y procedemos con la explotación.
 # Explotación
 Vamos a crear un fichero de testo con nombre `users.txt` donde pondremos juan y camilo.  
 Ahora utilizaremos hydra para ver si logramos sacar una contraseña valida para podernos logear en SSH.  
-Tras esperar un buen rato encontramos una contraseña valida para el usuario camilo y podemos asý conectarnos a la maquina victima por SSH.   
+Tras esperar un buen rato encontramos una contraseña valida para el usuario camilo y podemos asý conectarnos a la maquina victima por SSH.  
+
+![V_4](https://github.com/giustiand/DockerLabs-Writeups/blob/main/MuyF%C3%A1cil/.images/Vacaciones/V_4.jpg)  
 
 ![V_5](https://github.com/giustiand/DockerLabs-Writeups/blob/main/MuyF%C3%A1cil/.images/Vacaciones/V_5.jpg)  
-
-
 
 # Escalada de privilegios
 La prima cosa que me ocurre hacer es ir a revisar los correos.  
