@@ -45,6 +45,30 @@ Probamos a utilizarlos para acceder a SSH.
 
 ![I_5](https://github.com/giustiand/DockerLabs-Writeups/blob/main/MuyF%C3%A1cil/.images/Injection/I_5.jpg)  
 
+Ya hemos tenido acceso, ahora tenemos que intentar que escalar privilegios.  
+
+# Escalada de privilegios
+Probamos con el comando `sudo -l` para ver que podemos hacer.  
+ 
+![I_6](https://github.com/giustiand/DockerLabs-Writeups/blob/main/MuyF%C3%A1cil/.images/Injection/I_6.jpg)   
+
+Parece que por ahí no van los tiros.
+Buscamos a ver si podemos aprovechar de algun binario para elevar nuestros privilegios.
+
+![I_7](https://github.com/giustiand/DockerLabs-Writeups/blob/main/MuyF%C3%A1cil/.images/Injection/I_7.jpg)  
+
+Nos llama la atención el binario `env`, buscamos entonces en GTFOBins si hay alguna manera para poder escalar a root.  
+
+![I_8](https://github.com/giustiand/DockerLabs-Writeups/blob/main/MuyF%C3%A1cil/.images/Injection/I_8.jpg)   
+
+Perfecto, parece que sí!  
+Entonces digitamos el comando y  
+
+![I_9](https://github.com/giustiand/DockerLabs-Writeups/blob/main/MuyF%C3%A1cil/.images/Injection/I_9.jpg)   
+
+Listo! Ya somos root!
+
+
 
 
 
