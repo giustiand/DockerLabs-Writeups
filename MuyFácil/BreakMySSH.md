@@ -28,6 +28,7 @@ Si hacemos una rápida busqueda en Google podemos observar que la versión de Op
  
 ![BMS_2](https://github.com/giustiand/DockerLabs-Writeups/blob/main/MuyF%C3%A1cil/.images/BreakMySSH/BMS_2.jpg)  
 
+# Explotación
 Lo que podríamos hacer en este caso es lanzar un ataque de fuerza bruta tanto para el usuario como para la contraseña.
 Otra cosa que podríamos hacer es hacer un ataque de fuerza bruta contra el usuario `root` que sabemos que está disponible en todos los sistemas Linux.
 Para ello utilizaremos la herramienta `hydra`.  
