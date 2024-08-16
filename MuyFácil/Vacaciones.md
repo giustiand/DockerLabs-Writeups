@@ -34,3 +34,23 @@ Probamos a ver si hay algo "escondido" en el código de la pagina ( `Ctrl + U` )
 
 Tomamos nota de esta información y procedemos con la explotación.
 
+# Explotación
+Vamos a crear un fichero de testo con nombre `users.txt` donde pondremos juan y camilo.  
+Ahora utilizaremos hydra para ver si logramos sacar una contraseña valida para podernos logear en SSH.  
+Tras esperar un buen rato encontramos una contraseña valida para el usuario camilo y podemos asý conectarnos a la maquina victima por SSH.  
+![V_5](https://github.com/giustiand/DockerLabs-Writeups/blob/main/MuyF%C3%A1cil/.images/Vacaciones/V_5.jpg)  
+
+
+# Escalada de privilegios
+La prima cosa que me ocurre hacer es ir a revisar los correos.  
+![V_6](https://github.com/giustiand/DockerLabs-Writeups/blob/main/MuyF%C3%A1cil/.images/Vacaciones/V_6.jpg)  
+Probamos esta nueva contraseña que hemos descubierto para hacer login con el usuario juan.  
+![V_7](https://github.com/giustiand/DockerLabs-Writeups/blob/main/MuyF%C3%A1cil/.images/Vacaciones/V_7.jpg)  
+Ahora provamos a escalar los privilegios a root.  
+Damos el comando `sudo -l`.
+![V_8](https://github.com/giustiand/DockerLabs-Writeups/blob/main/MuyF%C3%A1cil/.images/Vacaciones/V_8.jpg)  
+Lo que podemos hacer ahora es mirar en la web de GTFOBins si encontramos alguna manera para poder escalar de privilegios.
+![V_9](https://github.com/giustiand/DockerLabs-Writeups/blob/main/MuyF%C3%A1cil/.images/Vacaciones/V_9.jpg)  
+Lanzamos el comando y listo, ya somos root!  
+![V_10](https://github.com/giustiand/DockerLabs-Writeups/blob/main/MuyF%C3%A1cil/.images/Vacaciones/V_10.jpg) 
+
