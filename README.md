@@ -1,5 +1,5 @@
 ![Logo](https://github.com/giustiand/DockerLabs-Writeups/blob/main/MuyF%C3%A1cil/.images/Logo.png)  
-
+<div style="text-align: center;">
 # DockerLabs-Writeups
 En estos write-ups exploraremos la explotación de diversas máquinas vulnerables diseñadas para la práctica del hacking ético.  
 A lo largo del documento, abordaremos la explotación de sistemas de diferentes niveles de dificultad, desde los más básicos hasta los más avanzados.  
