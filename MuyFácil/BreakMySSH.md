@@ -21,12 +21,7 @@ Empezamos con un escaneo de los puertos.
 - `-vvv` : Verbose - Muestra toda la información
 
 # Resultado escaneo
-```
-PORT STATE SERVICE REASON VERSION
-21/tcp open ftp syn-ack ttl 64 vsftpd 2.3.4
-MAC Address: 02:42:AC:11:00:02 (Unknown)
-Service Info: OS: Unix
-```
+![BMS_1](https://github.com/giustiand/DockerLabs-Writeups/blob/main/MuyF%C3%A1cil/.images/BMS_1.jpg)
 El único puerto abierto es el 21, que corresponde al servicio FTP.
 Tenemos un servicio vsftpd con versión 2.3.4, podemos buscar alguna vulnerabilidad existente para este servicio con searchsploit.  
 
