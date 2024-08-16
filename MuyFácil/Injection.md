@@ -52,7 +52,7 @@ Probamos con el comando `sudo -l` para ver que podemos hacer.
  
 ![I_6](https://github.com/giustiand/DockerLabs-Writeups/blob/main/MuyF%C3%A1cil/.images/Injection/I_6.jpg)   
 
-Parece que por ahí no van los tiros.
+Parece que por ahí no van los tiros.  
 Buscamos a ver si podemos aprovechar de algun binario para elevar nuestros privilegios.
 
 ![I_7](https://github.com/giustiand/DockerLabs-Writeups/blob/main/MuyF%C3%A1cil/.images/Injection/I_7.jpg)  
