@@ -38,7 +38,7 @@ Volvemos al panel de login e intentamos a bypassar la autenticación con la más
 
 ![I_4](https://github.com/giustiand/DockerLabs-Writeups/blob/main/MuyF%C3%A1cil/.images/Injection/I_4.jpg)  
 
-Perfecto, ya tenemos un usuario "dylan" y una contraseña "KJSDFG789FGSDF78".  
+Perfecto, ya tenemos un usuario "dylan" y una contraseña.  
 
 # Explotación
 Probamos a utilizarlos para acceder a SSH.  
