@@ -1,7 +1,7 @@
 # Trust
 **Herramientas y recursos usados**
 - nmap
-- searchsploit
+- gobuster
 - hydra
 
 # Enumeración
