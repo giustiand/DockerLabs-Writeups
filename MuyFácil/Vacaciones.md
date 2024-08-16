@@ -63,6 +63,7 @@ Lo que podemos hacer ahora es mirar en la web de GTFOBins si encontramos alguna 
 ![V_9](https://github.com/giustiand/DockerLabs-Writeups/blob/main/MuyF%C3%A1cil/.images/Vacaciones/V_9.jpg)   
 
 Lanzamos el comando y listo, ya somos root!  
+
 ![V_10](https://github.com/giustiand/DockerLabs-Writeups/blob/main/MuyF%C3%A1cil/.images/Vacaciones/V_10.jpg) 
 
 
