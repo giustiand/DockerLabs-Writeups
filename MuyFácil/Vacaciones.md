@@ -1,8 +1,8 @@
-![image](https://github.com/user-attachments/assets/52f5c54e-e135-4d0e-afb6-e4757153ad6f)# Vacaciones
+# Vacaciones
 **Herramientas y recursos usados**
 - nmap
 - searchsploit
-- msfconsole
+- hydra
 
 # Enumeración
 
