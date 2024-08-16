@@ -28,6 +28,8 @@ MAC Address: 02:42:AC:11:00:02 (Unknown)
 Service Info: OS: Unix
 ```
 El único puerto abierto es el 21, que corresponde al servicio FTP.
+
+# Explotación
 Tenemos un servicio vsftpd con versión 2.3.4, podemos buscar alguna vulnerabilidad existente para este servicio con searchsploit.  
 
 `searchsploit vsftpd 2.3.4`  
