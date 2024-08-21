@@ -31,7 +31,9 @@ Abrimos un explorador para ver que corre en esto puerto.
 Se nos abre la pagina por defecto de Apache.  
 Mirando el código fuente no podemos sacar nada de interesante, por lo tanto haremos fuzzing web para que podemos encontrar.  
 
-![L_40](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/L40_3.jpg)   
+![L_40](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/L40_3.jpg)  
+
+
 
 
 
