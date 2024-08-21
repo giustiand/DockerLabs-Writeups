@@ -21,3 +21,17 @@ Empezamos con un escaneo de los puertos.
 - `-vvv` : Verbose - Muestra toda la información
 
 # Resultado escaneo
+![L_40](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/L40_1.jpg)   
+
+Tenemos solamente un puerto abierto, el 80.  
+Abrimos un explorador para ver que corre en esto puerto.  
+
+![L_40](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/L40_2.jpg)   
+
+Se nos abre la pagina por defecto de Apache.  
+Mirando el código fuente no podemos sacar nada de interesante, por lo tanto haremos fuzzing web para que podemos encontrar.  
+
+![L_40](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/L40_3.jpg)   
+
+
+
