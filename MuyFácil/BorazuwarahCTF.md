@@ -1,6 +1,7 @@
 # BorazuwarahCTF
 **Herramientas y recursos usados**
 - nmap
+- steghide
 - exiftool
 - hydra
 
