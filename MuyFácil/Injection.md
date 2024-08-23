@@ -1,8 +1,7 @@
 # Injection
 **Herramientas y recursos usados**
 - nmap
-- searchsploit
-- hydra
+- gobuster
 
 # Enumeración
 
