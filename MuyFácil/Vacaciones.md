@@ -1,7 +1,6 @@
 # Vacaciones
 **Herramientas y recursos usados**
 - nmap
-- searchsploit
 - hydra
 
 # Enumeración
