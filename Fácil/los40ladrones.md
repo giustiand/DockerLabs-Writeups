@@ -1,7 +1,8 @@
 # Los40ladrones
 **Herramientas y recursos usados**
 - nmap
-- searchsploit
+- gobuster
+- knock
 - hydra
 
 # Enumeración
