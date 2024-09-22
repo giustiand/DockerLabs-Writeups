@@ -2,8 +2,7 @@
 **Herramientas y recursos usados**  
 - nmap 
 - gobuster  
-- knock  
-- hydra
+
 
 # Enumeración
 
@@ -70,7 +69,25 @@ Lo que podemos probar a hacer es ver si hay la llave privada del usuario en la c
 
 Ahora abrimos el fichero **id_rsa** y lo copiamos.  
 
-![VV_12](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/vulnvault/VV_12.jpg)    
+![VV_12](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/vulnvault/VV_12.jpg)     
+
+![VV_13](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/vulnvault/VV_13.jpg)      
+
+# Explotación  
+
+Una vez copiado el contenido del fichero id_rsa en nuestra maquina local le vamos a dar permiso 600 y nos conectamos a la maquina victima.  
+
+![VV_14](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/vulnvault/VV_14.jpg)      
+
+![VV_15](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/vulnvault/VV_15.jpg)    
+
+
+
+
+
+
+
+
 
 
 
