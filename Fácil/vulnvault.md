@@ -1,4 +1,4 @@
-# VulnVault
+![image](https://github.com/user-attachments/assets/c3774c10-44df-4b2e-bd4d-de010079a84c)![image](https://github.com/user-attachments/assets/8248e627-6c1e-4647-8dcc-895144a905cc)# VulnVault
 **Herramientas y recursos usados**  
 - nmap 
 - gobuster  
@@ -29,15 +29,62 @@ Abrimos el explorador para ver que hay en el puerto 80.
 
 ![VV_2](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/vulnvault/VV_2.jpg)  
 
-Puede llamarnos la atencion el menu que pone "subir archivos".  
-Probamos a ver si podemos subir un archivo .php para obtener una reverse shell. 
+Puede llamarnos la atencion el menu que pone "subir archivos".   
+Probamos a ver si podemos subir un archivo .php para obtener una reverse shell.   
 Preparamos entonces un fichero .php y probamos a cargarlo.  
 
 ![VV_3](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/vulnvault/VV_3.jpg)   
 
 Perfecto!  
-El archivo se ha cargado exitosamente. 
-Ahora tenemos que hacer fuzzing web a la busqueda de una carpeta upload o algo así donde podría estar cargado nuestro fichero para poder usarlo para ganar una shell.  
+El archivo se ha cargado exitosamente.   
+Ahora tenemos que hacer fuzzing web a la busqueda de una carpeta upload o algo así donde podría estar cargado nuestro fichero para poder usarlo para ganar una shell.   
+
+![VV_4](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/vulnvault/VV_4.jpg)     
+
+Abrimos la página "upload.php" para ver si allí vemos el fichero, pero no hay nada.   
+
+![VV_5](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/vulnvault/VV_5.jpg)    
+
+Volvemos entonces a la página de inicio para ver si podemos encontrar alguna pista.  
+Vemos que hay una frase que habla de comandos maliciosos.  
+
+![VV_6](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/vulnvault/VV_6.jpg)     
+
+Tras probar varias maneras para escapar los comandos podemos apreciar que si ponemos por ejemplo `; cat /etc/passwd` podemos obtener el listado de todos los usuarios de la maquina.  
+
+![VV_7](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/vulnvault/VV_7.jpg)    
+
+![VV_8](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/vulnvault/VV_8.jpg)   
+
+Perfecto!  
+Ahora sabeos que hay un usuario que se llama **samara** y podemos probar un ataque de fuerza bruta con hydra.  
+
+![VV_9](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/vulnvault/VV_9.jpg)     
+
+Tras esperar un largo rato vemos que no podemos sacar la password.  
+Lo que podemos probar a hacer es ver si hay la llave privada del usuario en la carpeta .ssh.  
+
+![VV_10](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/vulnvault/VV_10.jpg)      
+
+![VV_11](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/vulnvault/VV_11.jpg)    
+
+Ahora abrimos el fichero **id_rsa** y lo copiamos.  
+
+![VV_12](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/vulnvault/VV_12.jpg)    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
