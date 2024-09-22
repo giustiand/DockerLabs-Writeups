@@ -81,6 +81,45 @@ Una vez copiado el contenido del fichero id_rsa en nuestra maquina local le vamo
 
 ![VV_15](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/vulnvault/VV_15.jpg)    
 
+# Escalada de privilegios    
+
+Vemos que si le damos al comando `sudo -l` nos dice que no encuentra el comando sudo.  
+
+![VV_16](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/vulnvault/VV_16.jpg)   
+
+Revisamos permisos SUID  y podemos observar que no tenemos nada que nos pueda ser útil.  
+
+![VV_17](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/vulnvault/VV_17.jpg)     
+
+Entonces lo que haremos será subir **pspy** a la máquina victima para ver si podemos obtener algo util.  
+Creamos una carpeta `tmp` en nuestra máquina Kali y descargamos el fichero en la maquina victima.  
+
+![VV_18](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/vulnvault/VV_18.jpg)    
+
+![VV_19](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/vulnvault/VV_19.jpg)  
+
+Ahora le damos los permisos de ejecución y lo ejecutamos.  
+
+![VV_20](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/vulnvault/VV_20.jpg)   
+
+Notamos que hay un fichero nombrado "echo.sh" que se ejecuta ad intervalos regulares.  
+Modificamos su contendio y le añadimos este comando para que nos ejecute una bash con permisos de root.  
+
+![VV_21](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/vulnvault/VV_21.jpg)     
+
+Ahora solo tendremos que esperar un istante y si le damos al comando `bash -p` ya podremos ver que seremos root!  
+
+![VV_22](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/vulnvault/VV_22.jpg)      
+
+
+
+
+
+
+
+
+
+
 
 
 
