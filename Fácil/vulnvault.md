@@ -23,7 +23,7 @@ Empezamos con un escaneo de los puertos.
 # Resultado escaneo  
 ![VV_1](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/vulnvault/VV_1.jpg)  
 
-Tenemos 2 puertos abiertos, el 22 y el 80. 
+Tenemos 2 puertos abiertos, el 22 y el 80.   
 Abrimos el explorador para ver que hay en el puerto 80. 
 
 ![VV_2](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/vulnvault/VV_2.jpg)  
