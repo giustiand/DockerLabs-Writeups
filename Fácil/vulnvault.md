@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/c3774c10-44df-4b2e-bd4d-de010079a84c)![image](https://github.com/user-attachments/assets/8248e627-6c1e-4647-8dcc-895144a905cc)# VulnVault
+# VulnVault
 **Herramientas y recursos usados**  
 - nmap 
 - gobuster  
