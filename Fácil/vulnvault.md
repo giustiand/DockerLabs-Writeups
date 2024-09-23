@@ -103,7 +103,7 @@ Ahora le damos los permisos de ejecución y lo ejecutamos.
 ![VV_20](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/vulnvault/VV_20.jpg)   
 
 Notamos que hay un fichero nombrado "echo.sh" que se ejecuta ad intervalos regulares.  
-Modificamos su contendio y le añadimos este comando para que nos ejecute una bash con permisos de root.  
+Modificamos su contendio y le añadimos este comando `chmod u+s /bin/bash` para que el binario de bash tenga el bit SUID establecido y esto nos permitirá obtener una shell como root.  
 
 ![VV_21](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/vulnvault/VV_21.jpg)     
 
