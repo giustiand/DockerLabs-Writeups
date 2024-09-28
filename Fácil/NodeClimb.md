@@ -31,7 +31,7 @@ Nos conectamos y descargamos el archivo ".zip" que encontramos.
 
 Si probamos a extraerlo nos vemos que nos pide una password.   
 
-!(https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/NodeClimb/NC_3.jpg)       
+![NC](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/NodeClimb/NC_3.jpg)       
 
 Para probar a extraer la password haremos el uso de la herramienta **zip2john**.  
 Crearemos un fichero nombrado **hash** donde guardaremos el hash de la contraseña.   
