@@ -1,4 +1,4 @@
-# Los40ladrones
+# Los 40 Ladrones
 **Herramientas y recursos usados**
 - nmap
 - gobuster
