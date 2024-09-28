@@ -22,12 +22,12 @@ Empezamos con un escaneo de los puertos.
 
 # Resultado escaneo  
 
-!(https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/NodeClimb/NC_1.jpg)       
+![NC](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/NodeClimb/NC_1.jpg)       
 
 Tenemos 2 puertos abiertos y como podemos apreciar el puerto 21 permite de hacer login de manera anonima.  
 Nos conectamos y descargamos el archivo ".zip" que encontramos.  
 
-!(https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/NodeClimb/NC_2.jpg)     
+![NC](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/NodeClimb/NC_2.jpg)     
 
 Si probamos a extraerlo nos vemos que nos pide una password.   
 
@@ -36,15 +36,15 @@ Si probamos a extraerlo nos vemos que nos pide una password.
 Para probar a extraer la password haremos el uso de la herramienta **zip2john**.  
 Crearemos un fichero nombrado **hash** donde guardaremos el hash de la contraseña.   
 
-!(https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/NodeClimb/NC_4.jpg)        
+![NC](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/NodeClimb/NC_4.jpg)        
 
 Ahora utilizaremos la herramienta **john the ripper** para intentar sacar la contraseña.  
 
-!(https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/NodeClimb/NC_5.jpg)       
+![NC](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/NodeClimb/NC_5.jpg)       
 
 Perfecto, ahora extraemos el fichero zip y miraremos el contenido del fichero **password.txt**.  
 
-!(https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/NodeClimb/NC_6.jpg)       
+![NC](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/NodeClimb/NC_6.jpg)       
 
 Listo, ya tenemos usuario y contraseña y podemos conectarnos por SSH.  
 
@@ -52,15 +52,15 @@ Listo, ya tenemos usuario y contraseña y podemos conectarnos por SSH.
 
 Una vez dentro vemos que si le damos el comando `sudo -l` podemos ejecutar el fichero node con permisos de root.  
 
-!(https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/NodeClimb/NC_7.jpg)     
+![NC](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/NodeClimb/NC_7.jpg)     
 
 Miramos en GTOBins y vemos que podemos explotarlo añadiendo esta stringa `'require("child_process").spawn("/bin/sh", {stdio: [0, 1, 2]})'` en un fichero .js, en este caso utilizaremos el fichero que se encuentra en /home/mario/script.js.  
 
-!(https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/NodeClimb/NC_8.jpg)          
+![NC](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/NodeClimb/NC_8.jpg)          
 
 Una vez modificado el fichero script.js solo tendremos que dar el comando `sudo /usr/bin/node /home/mario/script.js`  y listo, somos root!  
 
-!(https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/NodeClimb/NC_9.jpg)      
+![NC](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/NodeClimb/NC_9.jpg)      
 
 
 
