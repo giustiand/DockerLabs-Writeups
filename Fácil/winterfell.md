@@ -39,9 +39,56 @@ Vamos a ver que hay en esta página.
 
 ![W](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/winterfell/W_4.jpg)    
 
-Si abrimos el fichero nombrado "EpisodiosT1" vemos un listado 
+Si abrimos el fichero nombrado "EpisodiosT1" vemos un listado.  
 
 ![W](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/winterfell/W_5.jpg)   
 
-Podemos intentar a copiar este listado en un fichero que llamaremos pass.txt para comprobar si una de estas podría ser una contraseña valida para el usuario jon.  
+Podemos intentar a copiar este listado en un fichero que llamaremos pass.txt y utilizarlo como nuestro diccionario para ataque de fuerza bruta.  
+Antes pero, debemos intentar enumerar los usuarios.  
+Para ello usaremos la herramienta **enum4linux**.  
+Ejecutamos el comando `sudo enum4linux -a 172.17.0.2` y vemos que nos saca 3 usuarios.  
+
+![W](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/winterfell/W_6.jpg)   
+
+Ahora podemos intentar utilizar el diccionario que nos hemos creado anteriormente e intentar un ataque de fuerza bruta contra smb.  
+Utilizaremos la herramienta **crackmapexec** y ejecutaremos el comando:  
+
+`sudo crackmapexec smb 172.17.0.2 -u 'jon' -p pass.txt`  
+
+![W](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/winterfell/W_7.jpg)     
+
+Perfecto, tenemos una contraseña valida.   
+Ahora intentaremos enumerar los recursos a los que podemos acceder.   
+
+`sudo smbmap -H 172.17.0.2 -u jon -p seacercaelinvierno`  
+
+![W](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/winterfell/W_8.jpg)   
+
+Ahora nos conectamos al recurso shared para ver si hay algo interesante.   
+
+`sudo smbclient //172.17.0.2/shared -U jon`  
+
+![W](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/winterfell/W_9.jpg)    
+
+Nos descargamos el fichero con el comando `get`.  
+
+![W](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/winterfell/W_10.jpg)      
+
+Si abrimos el ficheros vemos que hay una valiosa información.  
+
+![W](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/winterfell/W_11.jpg)    
+
+Intentamos decriptarla con este comando.  
+
+`echo 'aGlqb2RlbGFuaXN0ZXI=' | base64 -d`  
+
+![W](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/winterfell/W_12.jpg)    
+
+
+
+
+
+
+
+
 
