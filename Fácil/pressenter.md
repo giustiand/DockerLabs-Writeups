@@ -113,7 +113,22 @@ Entonces probamos a ver si podemos cambiar de usuario.
 Perfecto!  
 Hacemos un `sudo -l` y vemos cosas que nos vendrán bien para escalarnos a root.  
 
-![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/pressenter/P_18.jpg)     
+![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/pressenter/P_18.jpg)  
+
+Si hacemos un `ls` como usuario enter vemos que hay un fichero que se llama **user.txt**  
+
+![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/pressenter/P_19.jpg)    
+
+Ahora que sabemos que podemos utilizar "cat" con privilegios de root lo que podemos intentar hacer es ver si existe un fichero nombrado **root.txt** en la home de root y leer su contenido.  
+
+![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/pressenter/P_20.jpg)     
+
+Esto no nos sirve.  
+Después de pensar y realmente no encontrar ninguna forma para poder elevear privilegios, como ùltima cosa, casi sin creermelo, pruebo a utilizar la password de enter...y listo!  
+Somos root!  
+
+![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/pressenter/P_21.jpg)      
+
 
 
 
