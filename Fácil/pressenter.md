@@ -1,7 +1,6 @@
 # Pressenter
 **Herramientas y recursos usados**  
-- zip2john
-- john the ripper
+
 
 
 # Enumeración
