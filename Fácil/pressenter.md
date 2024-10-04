@@ -58,11 +58,72 @@ Para ello damos el comando:
 
 Y tras esperar unos minutos encontramos una contraseña.  
 
-![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/Pressenter/P_7.jpg)      
+![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/Pressenter/P_7.jpg)   
+
+# Explotación
 
 Entonces nos logeamos en el panel wp-login.php.  
 
-![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/Pressenter/P_8.jpg)  
+![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/Pressenter/P_8.jpg)   
+
+En la scansión anterior de **wpscan** hemos podido apreciar que el directory listing está habilitado, es decir, podemos navegar a esta ruta.  
+
+http://pressenter.hl/wp-content/themes/twentytwentyfour/  
+
+![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/Pressenter/P_9.jpg)   
+
+Por lo tanto lo que intentaremos hacer es modificar el fichero **funcion.php** para obtener una reverse shell.  
+Para ello vamos al menu "Herramientas" luego a "Editor de archivos de tema" y por ultimo seleccionaremos el fichero **function.php**.  
+
+![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/Pressenter/P_10.jpg)     
+
+Lo actualizamos, y ahora solo tendremos que ponernos a la escucha en la nuestra maquina kali y abrir el fichero function.php.  
+
+![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/Pressenter/P_11.jpg)       
+
+Perfecto, ahora haremos un tratamiento de la shell para poder trabajar más comodamente.  
+
+![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/Pressenter/P_12.jpg)     
+
+# Escalada de privilegios  
+
+Probamos con los típicos comandos `sudo -l` y `find / -perm -4000 2>/dev/null` pero no vemos nada interesante.  
+
+![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/Pressenter/P_13.jpg)  
+
+Probamos a subir a la maquina victima **pspy64** pero no obtenemos nada interesante.  
+Entonces probamos a subir **linpeas** y aquí sí que encontramos información valiosa.  
+
+![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/Pressenter/P_14.jpg)    
+
+Con las credenciales obtenidas nos logeamos a sql y vemos si podemos sacar algo util.  
+
+`mysql -u admin -prooteable -h 127.0.0.1`  
+
+![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/Pressenter/P_15.jpg)     
+
+![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/Pressenter/P_16.jpg)     
+
+Bien!  
+Hemos podido sacar la password de un usuario que se llama **enter**.  
+Vamos a comprobar si en la maquina hay algun usuario con este nombre y sí que hay!  
+Entonces probamos a ver si podemos cambiar de usuario.   
+
+![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/Pressenter/P_17.jpg)      
+
+Perfecto!  
+Hacemos un `sudo -l` y vemos cosas que nos vendrán bien para escalarnos a root.  
+
+![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/Pressenter/P_18.jpg)     
+
+
+
+
+
+
+
+
+
 
 
 
