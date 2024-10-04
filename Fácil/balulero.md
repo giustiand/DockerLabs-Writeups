@@ -80,4 +80,28 @@ Le damos los permisos de ejecucíon y lo lanzamos.
 ![B](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/balulero/B_12.jpg)    
 
 Como podemos ver hay uno **script.php** que se ejecuta de forma recurrente.  
-Miramos a ver que contiene el script.  
+
+![B](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/balulero/B_13.jpg)   
+
+Miramos a ver que contiene el script.   
+
+![B](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/balulero/B_14.jpg)     
+
+Ya que tenemos los permisos para borrar el fichero lo que se me ocurre es subir a la carpeta /tmp de la maquina victima una revershell en php.  
+Por lo tanto me montaré otra vez el servidor en python y subiré una reverse shell (podemos ir a la web pentestmonkey.  
+
+Una vez modificado el fichero y haberlo subido a la máquina victima lo que tenemos que hacer es borrar el fichero script.php que se encuentra en /opt y sustituirlo con el nuestro fichero que contiene la reverse shell (llamandolo siempre con el nombre **script.php**)  
+
+![B](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/balulero/B_15.jpg)       
+
+Ahora solo tendremos que abrir una shell en nuestra máquina kali y ponernos a la escucha y en unos segundo...listo!  
+Somos root!  
+
+![B](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/balulero/B_16.jpg)         
+
+
+
+
+
+
+
