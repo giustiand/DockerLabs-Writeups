@@ -109,5 +109,76 @@ Probamos a dar los tipicos comandos para intentar escalar de privilegios, pero n
 
 ![ST](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/showtime/ST_12.jpg)   
 
+Entonces subimos el archivo linpeas.sh a la maquina victima.  
+Para ello nos montamos un server http en la nuesta maquina kali con el comando:  
+`sudo python3 -m http.server` y posteriormente descargamos el archivo en la maquina victima.  
+Le damos los permisos de ejecucíon con el comando `chmod +x` y lo ejecutamos.  
+Analizandolo todo vemos que hay un archivo oculto en la carpeta /tmp que se llama **.hidden_text.txt**  
+
+![ST](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/showtime/ST_13.jpg)    
+
+Lo abrimos y vemos que contiene una serie de palabras todas en mayusculas.  
+
+![ST](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/showtime/ST_14.jpg)   
+
+Jugando con la imaginacíon podemos pensar que esto podría ser un listado de probables contraseña. 
+Probamos a crear un diccionario pero vemos que con hydra no logramos sacar la contraseña.  
+Una otra cosa que podemos hacer es convertir con **tr** todas las palabras de mayusculas a minusculas.  
+Para ello utilizamos el siguiente comando:  
+
+`cat pass.txt | tr '[:upper:]' '[:lower:]' > password.txt`  
+
+Y ahora intentamos otra vez con hydra para ver si sacamos algo que nos pueda servir.  
+Ejecutamos el comando:  
+
+`sudo hydra -L users.txt -P password.txt ssh://172.17.0.2/`  y listo, conseguimos una contraseña valida pare el usuario joe.  
+
+![ST](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/showtime/ST_15.jpg)     
+
+Ahora nos conectamos con el usuario joe y lanzamos el comando:  
+
+`sudo -l`  
+
+![ST](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/showtime/ST_16.jpg)     
+
+Miramos en GTFOBins si podemos aprovechar de este binario y parece que sí.  
+
+![ST](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/showtime/ST_17.jpg)      
+
+![ST](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/showtime/ST_18.jpg)    
+
+Perfecto, ya hemos podido escalar a otro usuario.  
+Lanzamos otra vez el comando `sudo -l`  
+
+![ST](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/showtime/ST_19.jpg)     
+
+Echamos un ojo a lo script en la carpeta de luciano.  
+
+![ST](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/showtime/ST_20.jpg)      
+
+Ok, lo que haremos será modificarlo para poder escalar a root.  
+Vemos que no podemos utilizar ni el editor nano ni el vim.  
+Por lo tanto lo que haremos será utilizar el comando **echo**.  
+Lanzaremos el comando:  
+
+`echo -e '#!/bin/bash \n chmod u+s /bin/bash' > .script.sh`  
+
+![ST](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/showtime/ST_21.jpg)    
+
+Perfecto, ahora ejecutaremos el comando `sudo /bin/bash /home/luciano/script.sh` y luego el comando `bash -p`  y listo!  
+Ya somos root!  
+
+![ST](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/showtime/ST_22.jpg)    
+
+
+
+
+
+
+
+
+
+
+
 
 
