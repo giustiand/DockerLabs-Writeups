@@ -99,8 +99,10 @@ Una vez que nos logeamos con el usuario jon le damos al comando `sudo -l` para i
 
 Lo que podemos hacer es borrar el fichero **.mensaje.py** y volver a crearlo insertando este código:  
 
-`import os  
-os.system("/bin/bash")`
+```
+import os    
+os.system("/bin/bash")
+```
 
 
 
