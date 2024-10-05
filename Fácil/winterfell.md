@@ -84,6 +84,26 @@ Intentamos decriptarla con este comando.
 
 ![W](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/winterfell/W_12.jpg)    
 
+Ahora que tenemos una contraseña podemos crearnos un diccionario con los 3 nombres de usuarios (que llamaremos **user.txt**) que hemos descubierto anteriormente y realizar un ataque de fuerza bruta.  
+Hecho esto usamoas la herramienta hydra con el comando:  
+
+`sudo hydra -L users.txt -P pass.txt ssh://172.17.0.2 `  
+
+y listo, obtenemos una combinación valida.  
+
+![W](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/winterfell/W_13.jpg)     
+
+Una vez que nos logeamos con el usuario jon le damos al comando `sudo -l` para intentar escalar privilegios.  
+
+![W](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/winterfell/W_14.jpg)     
+
+Lo que podemos hacer es borrar el fichero **.mensaje.py** y volver a crearlo insertando este código:  
+
+`import os  
+
+os.system("/bin/bash")`
+
+
 
 
 
