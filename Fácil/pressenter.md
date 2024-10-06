@@ -1,7 +1,4 @@
 # Pressenter
-**Herramientas y recursos usados**  
-
-
 
 # Enumeración
 
