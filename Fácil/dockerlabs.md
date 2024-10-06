@@ -82,6 +82,38 @@ Estamos dentro!
 
 ![D](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/dockerlabs/D_15.jpg)    
 
+Si le damos al comando `sudo -l` vemos que podemos abusar de dos binarios, cut y grep. 
+
+![D](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/dockerlabs/D_16.jpg)    
+
+Lo que tenemos que hacer es encontrar un fichero para poder intentar escalar privilegios.  
+Para ello le damos al comando:  
+
+`find / -type f -name *.txt 2>/dev/null`  
+
+y vemos que en la carpeta /opt encontramos un fichero interesante.  
+
+![D](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/dockerlabs/D_17.jpg)      
+
+Lo abrimos:  
+
+![D](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/dockerlabs/D_18.jpg)      
+
+Ahora miramos en la web de GTFObins y abusaremos del binario cut para escalarnos a root.  
+
+![D](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/dockerlabs/D_19.jpg)      
+
+Ejecutaremos el comando:  
+
+`sudo /usr/bin/cut -d "" -f1 "/root/clave.txt"` y listo, ya tenemos la clave de root.  
+
+![D](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/dockerlabs/D_20.jpg)      
+
+Ahora simplemente le daremos al comando `su` y le proporcionaremos esta contraseña...y listo!  
+Ya somos root!  
+
+![D](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/dockerlabs/D_21.jpg)      
+
 
 
 
