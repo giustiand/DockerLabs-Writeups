@@ -119,6 +119,25 @@ Bien, miramos en la web de GTFOBins como podemos utilizar este binario para inte
 
 ![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/candy/C_21.jpg)    
 
+Buscando por internet vemos que podríamos abusar de este binario para poder modificar el file /etc/sudoers.  
+Si abrimos este fichero en nuestra maquina kali como root podemos ver su estructura.  
+
+![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/candy/C_22.jpg)    
+
+La idea entonces sería modificar la entrada de manera que luisillo pueda ejecutar todos los comandos con su contraseña.  
+Por lo tanto volvemos a la maquina victima y siguiendo lo sugerido en GTFOBins hacemos la modifica al fichero sudoers.  
+
+![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/candy/C_23.jpg)    
+
+Por lo tanto ahora será suficiente teclear el comando `sudo su`, poner la contraseña de luisillo y...
+
+![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/candy/C_23.jpg)      
+
+Listo!
+Somos root!  
+
+
+
 
 
 
