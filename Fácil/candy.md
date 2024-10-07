@@ -80,6 +80,49 @@ Una vez hecho solo tendremos que ponernos en escucha en el puerto 6969 y abrir l
 
 Perfecto!  
 Ya estamos dentro!  
+Ahora si le damos a los comando `sudo -l` o `find / -perm -4000 2>/dev/null` vemos que no podemos hacer muchas cosas.  
+
+![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/candy/C_14.jpg)   
+
+Una cosa que se me ocurre es buscar a ver entre todos los ficheros .txt sy hay alguno que nos pueda servir.  
+Ejecutamos el comando:  
+
+`find / -type f -name *.txt 2>/dev/null`  
+
+y entre los resultados hay algo que nos llama la atención.  
+
+![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/candy/C_15.jpg)    
+
+Lo abrimos y vemos qua hay información interesante.  
+
+![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/candy/C_16.jpg)    
+
+Intentamos conectarnos a mysql con el usuario luisillo pero no nos deja.  
+
+![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/candy/C_17.jpg)   
+
+Entonces probamos a ver si en la máquina existe un usuario que se llama **luisillo**.  
+
+![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/candy/C_18.jpg)  
+
+Pues sí que hay.  
+Lo que haremos entonces será probar a usar la contraseña que hemos descubierto para convertirnos en luisillo.  
+
+![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/candy/C_19.jpg)  
+
+Ha funcionado.  
+Ahora le daremos al comando `sudo -l`.  
+
+![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/candy/C_20.jpg)  
+
+Bien, miramos en la web de GTFOBins como podemos utilizar este binario para intentar convertirnos en root.  
+
+![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/candy/C_21.jpg)    
+
+
+
+
+
 
 
 
