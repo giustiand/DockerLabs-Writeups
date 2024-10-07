@@ -74,5 +74,18 @@ Le damos al comando `sudo -l`
 
 ![PM](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/peque%C3%B1as_mentirosas/PM_9.jpg)    
 
+Ahora miraremos en la web de GTFOBins si podemos abusar de este binarios para convertirnos en root.  
+
+![PM](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/peque%C3%B1as_mentirosas/PM_10.jpg)    
+
+Ahora probaremos a dar el comando:  
+
+`sudo /usr/bin/python3 -c 'import os; os.system("/bin/sh")'`  
+
+![PM](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/peque%C3%B1as_mentirosas/PM_11.jpg)    
+
+Y listo!  
+Ya somos root!  
+
 
 
