@@ -43,9 +43,9 @@ Miramos en Google cuales son las credenciales por defecto.
 
 ![M](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/move/M_6.jpg)     
 
-No logramos accedere. 
-Lo que podemos apreciar es que nos encontramos en frente a la versión **8.3.0**.   
-Por lo tanto miramos a ver si hay algunas vulnerabilidades con la herramienta Metasploit.  
+No logramos acceder.   
+Lo que podemos apreciar es que nos encontramos en frente a la versión **8.3.0**.     
+Por lo tanto miramos a ver si hay algunas vulnerabilidades con la herramienta Metasploit. 
 
 `searchsploit grafana`
 
