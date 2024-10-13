@@ -80,7 +80,7 @@ Ahora probamos con el comando `sudo -l` para ver si podemos escalar privilegios.
 ![M](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/move/M_13.jpg)     
 
 Lo que haremos será ver si podemos editar el fichero maintenance.py. 
-Buscamos uno script en python para enviarnos una rever shell a nuestra máquina kali y editamos el fichero con el comando `nano /opt/maintenance.oy`.  
+Buscamos uno script en python para enviarnos una rever shell a nuestra máquina kali y editamos el fichero con el comando `nano /opt/maintenance.py`.  
 
 ![M](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/move/M_14.jpg). 
 
