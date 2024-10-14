@@ -50,8 +50,40 @@ Probamos a poner admin/admin y por suerte ya estamos dentro.
 
 ![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/chocolate_lovers/C_7.jpg)       
 
-Mirando el la página vemos que es la versión 4.0.3 "Coffee".  
+Mirando el la página vemos que es la versión 4.0.3 "Coffee".    
+
+![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/chocolate_lovers/C_8.jpg)      
+
 Lo que podemos hacer es buscar en Google si encontramos algún exploit.  
+Podemos ver que esta versión es vulnerable al arbitrary file upload.  
+Los que tenemos que hacer es activar el plugin nombrado **My image** y cargar nuestra reverse shell en php, no prestando atención a los errores que saldrán.  
+
+![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/chocolate_lovers/C_9.jpg)        
+
+Ahora lo que tenemos que hacer es ir al recurso http://172.17.0.2/nibbleblog/content/private/plugins/my_image/ y, una vez que nos hemos puesto a la escucha en nuesta máquina kali, abrir el fichero nombrado **image.php**.  
+
+![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/chocolate_lovers/C_10.jpg)        
+
+Perfecto!  
+Ya estamos dentro.  
+Ahora lo que haremos será hacer el tratamiento de la shell para poder trabajar de forma más cómoda.  
+Para ello ejecutaremos los comandos:  
+
+`script /dev/null -c bash` 
+
+Después `Ctrl +Z` (el processo va en background)  
+
+luego `stty raw -echo; fg` 
+
+`reset xterm`
+
+`export TERM=xterm`
+
+`export SHELL=bash`
+
+
+
+
 
 
 
