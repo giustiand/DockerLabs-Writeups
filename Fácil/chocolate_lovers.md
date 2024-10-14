@@ -79,7 +79,57 @@ luego `stty raw -echo; fg`
 
 `export TERM=xterm`
 
-`export SHELL=bash`
+`export SHELL=bash`  
+
+Bien, ahora que podemos trabajar más comodamente lo que haremos será intentar escalar de privilegios.  
+Para ello ejecutamos el comando:  
+
+`sudo -l`  
+
+![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/chocolate_lovers/C_11.jpg)     
+
+Ok, vemos que podemos aprovecharnos del binario php para escalar a chocolate.  
+Miraremos entonces en GTFOBins como hacerlo.  
+
+![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/chocolate_lovers/C_12.jpg)       
+
+Ejecutamos entonces los comandos sugeridos y podemos convertirnos en chocolate.  
+
+![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/chocolate_lovers/C_13.jpg)         
+
+Ahora probaremos a escalar a root.  
+Ejecutamos el comando `sudo -l` y `find / -perm -4000 2>/dev/null` pero vemos que no hay nada interesante.  
+
+![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/chocolate_lovers/C_14.jpg)   
+
+Lo que haremos será subir a la máquina victima el **pspy64** para ver si hay algo interesante.  
+Por lo tanto nos montaremos un servidor temporal en nuesta máquina kali con el comando:  
+
+`sudo python3 -m http.server`
+
+![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/chocolate_lovers/C_15.jpg)     
+
+Ahora entraremos en la carpeta **/tmp** de la máquina victima y descargaremos el fichero con la herramienta **wget**.  
+
+![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/chocolate_lovers/C_16.jpg)       
+
+Ahora le daremos los permisos de ejecución con el comando `chmod +x pspy64` y lo ejecutamos.  
+
+![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/chocolate_lovers/C_17.jpg)    
+
+Como podemos ver, en la carpeta **/opt** hay uno script .php nombrado **script.php** que se ejecuta cada 5 segundos.  
+Si como no tenemos nano y no podemos editar este fichero lo que haremos será borrarlo y subir a la máquina victima un fichero nombrado **script.php** contenente la nuestra reverse shell.  
+Una vez editado el fichero montaremos otra vez un servidor en nuestra máquina kali y nos los bajaremos con wget en nuestra máquina victima y lo moveremos a la carpeta opt.  
+
+![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/chocolate_lovers/C_18.jpg)    
+
+Ahora solo deberemos ponernos a la escucha en nuestra máquina victima para recibir la reverse shell como root.  
+
+![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/chocolate_lovers/C_19.jpg)      
+
+
+
+
 
 
 
