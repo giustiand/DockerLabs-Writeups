@@ -39,12 +39,12 @@ Para ello ejecutamos el comando:
 
 ![U](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/upload/U_5.jpg)   
 
-Listo! 
+Listo!   
 Ahora miramos la ruta http://172.17.0.2/uploads y nos ponemos a la escucha en nuestra máquina kali y una vez hecho abrimos el fichero reverse_shell.php.  
 
 ![U](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/upload/U_6.jpg)     
 
-Bien! 
+Bien!  
 Ahora podemos dar el comando `sudo -l` para ver si podemos aproecharnos de algún fichero para escalar de privilegios.  
 
 ![U](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/upload/U_7.jpg)   
