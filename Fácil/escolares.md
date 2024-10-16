@@ -127,7 +127,7 @@ Ahora probamos a entrar como luisillo con la contraseña que hemos encontrado.
 
 Bien! 
 Ahora intentamos escalar a root.  
-Ejecutmaos el comando:  
+Ejecutamos el comando:  
 
 `sudo -l`  
 
