@@ -131,6 +131,21 @@ Ejecutamos el comando:
 
 `sudo -l`  
 
+![E](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/escolares/E_21.jpg)      
+
+Ahora miraremos en GTFOBins como poder aprovecharnos de este binario.  
+
+![E](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/escolares/E_22.jpg)      
+
+Perfecto, entonces ejecutamos el comando:  
+
+`sudo awk 'BEGIN {system("/bin/sh")}'`  
+
+Y listo!  
+Ya somos root!  
+
+![E](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/escolares/E_23.jpg)      
+
 
 
 
