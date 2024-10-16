@@ -29,7 +29,7 @@ Abrimos Metasploit y buscaremos con el comando `search drupal`.
 
 ![F](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/findyourstyle/F_3.jpg)     
 
-Usaremos el exploit 16, el drupalgeddon.   
+Usaremos el exploit 1, el drupalgeddon.   
 Vamos a cumplimenter las  opciones y ejecutaremos el exploit.  
 
 ![F](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/findyourstyle/F_4.jpg)   
