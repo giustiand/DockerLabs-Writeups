@@ -90,3 +90,52 @@ Ahora volveremos a utilizar wpscan para realizar un ataque de fuerza bruta con n
 Perfecto!  
 Tenemos una combinación valida.  
 
+![E](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/escolares/E_13.jpg)      
+
+Por lo tanto nos logeamos  
+
+![E](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/escolares/E_14.jpg)     
+
+y una vez dentro miramos a ver si podemos encontrar alguna manera para enviarnos una reverse shell a nuestra máquina kali.  
+Vemos que hay la posibilidad de subir archivos a través del WP File manager, por lo tanto lo que haremos será subir nuestra reverse shell.
+
+![E](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/escolares/E_15.jpg)     
+
+Una vez hecho nos pondremos a la escucha en nuesta máquina atacante y ya estaremos dentro!   
+
+![E](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/escolares/E_16.jpg)   
+
+Bien, ahora intentamos escalar privilegios.  
+Vemos que con los típicos comandos no sacamos nada de interesante.  
+
+![E](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/escolares/E_17.jpg)   
+
+Entonces probamos a buscar algún fichero .txt con el comando:  
+
+`find / -type f -name *.txt 2>/dev/null`  
+
+![E](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/escolares/E_18.jpg)  
+
+Tenemos 2 ficheros nombrados **secret.txt**, uno en tmp y el otro en la home.  
+Leemos el archivo que se encuentra en la home y vemos que nos devuelve una probable contraseña.  
+
+![E](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/escolares/E_19.jpg)     
+
+Ahora probamos a entrar como luisillo con la contraseña que hemos encontrado.  
+
+![E](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/escolares/E_20.jpg)    
+
+Bien! 
+Ahora intentamos escalar a root.  
+Ejecutmaos el comando:  
+
+`sudo -l`  
+
+
+
+
+
+
+
+
+
