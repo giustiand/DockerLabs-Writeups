@@ -117,13 +117,13 @@ Ahora le daremos permisos de ejecución con el comando `chmod +x pspy64` y lo ej
 
 ![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/chocolate_lovers/C_17.jpg)    
 
-Como podemos ver, en la carpeta **/opt** hay uno script .php nombrado **script.php** que se ejecuta cada 5 segundos.  
-Si como no tenemos nano y no podemos editar este fichero lo que haremos será borrarlo y subir a la máquina victima un fichero nombrado **script.php** contenente la nuestra reverse shell.  
-Una vez editado el fichero montaremos otra vez un servidor en nuestra máquina kali y nos los bajaremos con wget en nuestra máquina victima y lo moveremos a la carpeta opt.  
+Como podemos observar, en la carpeta **/opt** hay un script en PHP llamado **script.php** que se ejecuta cada 5 segundos.   
+Dado que no tenemos acceso a nano y no podemos editar este archivo, lo que haremos será eliminarlo y subir a la máquina víctima un archivo llamado **script.php** que contendrá nuestra reverse shell.    
+Una vez que hayamos editado el archivo, montaremos de nuevo un servidor en nuestra máquina Kali y lo descargaremos en la máquina víctima utilizando **wget**, para luego moverlo a la carpeta **/opt**.    
 
 ![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/chocolate_lovers/C_18.jpg)    
 
-Ahora solo deberemos ponernos a la escucha en nuestra máquina victima para recibir la reverse shell como root.  
+Ahora solo deberemos ponernos a la escucha en nuestra máquina victima para recibir la reverse shell como root.   
 
 ![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/chocolate_lovers/C_19.jpg)      
 
