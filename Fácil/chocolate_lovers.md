@@ -2,7 +2,7 @@
 
 # Enumeración
 
-Empezamos con un escaneo de los puertos.
+Empezamos con un escaneo de los puertos.  
 
 `sudo nmap -p- --open -sC -sS -sV --min-rate=5000 -n -Pn -vvv 172.17.0.2 -oN Chocolate_lovers`
 
@@ -20,47 +20,47 @@ Empezamos con un escaneo de los puertos.
 
 ![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/chocolate_lovers/C_1.jpg)   
 
-Tenemos solamente un puerto abierto, el 80.  
-Echamos un vistazo a ver que hay.  
-Vemos que hay la pagina por defecto de Apache.  
+Solo tenemos un puerto abierto: el 80.   
+Echamos un vistazo para ver qué hay.   
+Observamos que hay la página por defecto de Apache.  
 
 ![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/chocolate_lovers/C_2.jpg)     
 
-Miramos a ver si hay algo de interesante en el código fuente.  
+Revisamos si hay algo interesante en el código fuente.  
 
 ![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/chocolate_lovers/C_3.jpg)     
 
-Abrimos el recurso /nibbleblog para ver lo que hay.  
+Abrimos el recurso **/nibbleblog** para ver qué hay.  
 
 ![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/chocolate_lovers/C_4.jpg)      
 
-Ahora haremos un poco de fuzzing web.  
-Ejecutamos el comando:  
+Ahora haremos un poco de fuzzing web.    
+Ejecutamos el siguiente comando:    
 
 `sudo gobuster dir -u http://172.17.0.2/nibbleblog -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -x php`  
 
 ![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/chocolate_lovers/C_5.jpg)      
 
-Hay una ruta, **admin.php** que nos debería llamar la atención.  
+Hay una ruta, **admin.php**, que debería llamarnos la atención.    
 
 ![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/chocolate_lovers/C_6.jpg)       
 
-Como podemos ver nos encontramos en frente a un panal de login. 
-Probamos a poner admin/admin y por suerte ya estamos dentro.  
+Como podemos ver, nos encontramos frente a un panel de inicio de sesión.    
+Probamos con **admin/admin** y, por suerte, ya estamos dentro.  
 
 ![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/chocolate_lovers/C_7.jpg)       
 
-Mirando el la página vemos que es la versión 4.0.3 "Coffee".    
+Al mirar en la página, vemos que es la versión 4.0.3 "Coffee".  
 
 ![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/chocolate_lovers/C_8.jpg)      
 
-Lo que podemos hacer es buscar en Google si encontramos algún exploit.  
-Podemos ver que esta versión es vulnerable al arbitrary file upload.  
-Los que tenemos que hacer es activar el plugin nombrado **My image** y cargar nuestra reverse shell en php, no prestando atención a los errores que saldrán.  
+Lo que podemos hacer es buscar en Google si encontramos algún exploit.   
+Podemos ver que esta versión es vulnerable a la carga arbitraria de archivos.   
+Lo que tenemos que hacer es activar el plugin llamado **My Image** y cargar nuestra reverse shell en PHP, sin prestar atención a los errores que aparezcan.  
 
 ![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/chocolate_lovers/C_9.jpg)        
 
-Ahora lo que tenemos que hacer es ir al recurso http://172.17.0.2/nibbleblog/content/private/plugins/my_image/ y, una vez que nos hemos puesto a la escucha en nuesta máquina kali, abrir el fichero nombrado **image.php**.  
+Ahora lo que tenemos que hacer es ir al recurso **http://172.17.0.2/nibbleblog/content/private/plugins/my_image/** y, una vez que nos hemos puesto a la escucha en nuestra máquina Kali, abrir el archivo llamado **image.php**.    
 
 ![C](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/chocolate_lovers/C_10.jpg)        
 
