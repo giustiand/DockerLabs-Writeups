@@ -24,33 +24,35 @@ Empezamos con un escaneo de los puertos.
 
 ![NC](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/NodeClimb/NC_1.jpg)       
 
-Tenemos 2 puertos abiertos y como podemos apreciar el puerto 21 permite de hacer login de manera anonima.  
-Nos conectamos y descargamos el archivo ".zip" que encontramos.  
+Tenemos 2 puertos abiertos y, como podemos apreciar, el puerto 21 permite hacer login de manera anónima.    
+Nos conectamos y descargamos el archivo **.zip** que encontramos.  
 
 ![NC](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/NodeClimb/NC_2.jpg)     
 
-Si probamos a extraerlo nos vemos que nos pide una password.   
+Si intentamos extraerlo, nos pide una contraseña.  
 
 ![NC](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/NodeClimb/NC_3.jpg)       
 
-Para probar a extraer la password haremos el uso de la herramienta **zip2john**.  
-Crearemos un fichero nombrado **hash** donde guardaremos el hash de la contraseña.   
+Para intentar extraer la contraseña, utilizaremos la herramienta **zip2john**.    
+Crearemos un archivo llamado **hash** donde guardaremos el hash de la contraseña.  
 
 ![NC](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/NodeClimb/NC_4.jpg)        
 
-Ahora utilizaremos la herramienta **john the ripper** para intentar sacar la contraseña.  
+Ahora utilizaremos la herramienta **John the Ripper** para intentar descifrar la contraseña.  
 
 ![NC](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/NodeClimb/NC_5.jpg)       
 
-Perfecto, ahora extraemos el fichero zip y miraremos el contenido del fichero **password.txt**.  
+¡Perfecto!  
+Ahora extraemos el archivo zip y miramos el contenido del archivo **password.txt**.  
 
 ![NC](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/NodeClimb/NC_6.jpg)       
 
-Listo, ya tenemos usuario y contraseña y podemos conectarnos por SSH.  
+¡Listo!   
+Ya tenemos el usuario y la contraseña, y podemos conectarnos por SSH.  
 
 # Explotación y escalada de privilegios   
 
-Una vez dentro vemos que si le damos el comando `sudo -l` podemos ejecutar el fichero node con permisos de root.  
+Una vez dentro vemos que si le damos el comando `sudo -l` podemos ejecutar el fichero node con permisos de root.  *
 
 ![NC](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/NodeClimb/NC_7.jpg)     
 
