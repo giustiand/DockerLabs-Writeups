@@ -56,7 +56,9 @@ Una vez dentro vemos que si le damos el comando `sudo -l` podemos ejecutar el fi
 
 ![NC](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/NodeClimb/NC_7.jpg)     
 
-Miramos en GTOBins y vemos que podemos explotarlo añadiendo esta stringa `'require("child_process").spawn("/bin/sh", {stdio: [0, 1, 2]})'` en un fichero .js, en este caso utilizaremos el fichero que se encuentra en /home/mario/script.js.  
+Miramos en GTOBins y vemos que podemos explotarlo añadiendo esta stringa:  
+`'require("child_process").spawn("/bin/sh", {stdio: [0, 1, 2]})'`  
+en un fichero .js, en este caso utilizaremos el fichero que se encuentra en /home/mario/script.js.   
 
 ![NC](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/NodeClimb/NC_8.jpg)          
 
