@@ -82,13 +82,13 @@ Ahora probamos con el comando `sudo -l` para ver si podemos escalar privilegios.
 Lo que haremos será ver si podemos editar el archivo **maintenance.py**.    
 Buscamos un script en Python para enviarnos una reverse shell a nuestra máquina Kali y editamos el archivo con el comando `nano /opt/maintenance.py`.  
 
-![M](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/move/M_14.jpg). 
+![M](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/move/M_14.jpg)
 
 Ahora nos pondremos a la escucha en nuestra máquina Kali con el comando `sudo nc -lvnp 6969`.   
 Finalmente, ejecutaremos en la máquina víctima el comando `sudo -u root /usr/bin/python3 /opt/maintenance.py` ¡y listo!   
 ¡Ya somos root!  
 
-![M](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/move/M_15.jpg). 
+![M](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/move/M_15.jpg) 
 
 
 
