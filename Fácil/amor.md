@@ -2,7 +2,7 @@
 
 # Enumeración
 
-Empezamos con un escaneo de los puertos.
+Empezamos con un escaneo de puertos.  
 
 `sudo nmap -p- --open -sC -sS -sV --min-rate=5000 -n -Pn -vvv 172.17.0.2 -oN Amor`  
 
@@ -20,87 +20,87 @@ Empezamos con un escaneo de los puertos.
 
 ![A](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/amor/A_1.jpg)   
 
-Tenemos solamente dos puertos abiertos, el 22 y el 80. 
-Miramos a ver que encontramos en el puerto 80.  
+Solo tenemos dos puertos abiertos, el 22 y el 80.  
+Vamos a revisar qué encontramos en el puerto 80.  
 
 ![A](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/amor/A_2.jpg)   
 
-Vemos que hay un usuario de la empresa que se llama **carlota**, por lo tanto lo que podemos intentar hacer es un ataque de fuerza bruta contra ssh.   
-Ejecutaremos el comando:  
+Observamos que hay una usuaria de la empresa llamada carlota, por lo tanto, podemos intentar un ataque de fuerza bruta contra SSH.  
+Ejecutaremos el siguiente comando:  
 
 `sudo hydra -l carlota -P /usr/share/wordlists/rockyou.txt ssh://172.17.0.2 -t64`  
 
 ![A](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/amor/A_3.jpg)     
 
-Perfecto!  
-Ya tenemos una contraseña valida y nos logeamos por ssh.  
-Una vez dentro ejecutamos el comando `sudo -l` pero vemos que no podemos sacar nada.  
+¡Perfecto!  
+Ya tenemos una contraseña válida y hemos iniciado sesión por SSH.   
+Una vez dentro, ejecutamos el comando `sudo -l`, pero vemos que no obtenemos ningún resultado útil.  
 
 ![A](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/amor/A_4.jpg)   
 
-Lo mismo nos pasa con el comando `find / -perm -4000 2>/dev/null`  
+Lo mismo nos sucede al ejecutar el comando `find / -perm -4000 2>/dev/null`, ya que no obtenemos ningún resultado relevante.  
 
 ![A](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/amor/A_5.jpg)     
 
-Mirando un poco en la carpeta del usuario vemos que hay una carpeta fotos que contiene una imagen.  
+Al revisar un poco en el directorio del usuario, encontramos una carpeta llamada **fotos** que contiene una imagen.  
 
 ![A](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/amor/A_6.jpg)     
 
-Nos la descgargamos con el comando:  
+Nos descargamos la imagen con el siguiente comando:  
 
 `scp -rpC carlota@172.17.0.2:/home/carlota/Desktop/fotos/vacaciones/imagen.jpg /home/kali/Downloads`  
 
 ![A](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/amor/A_7.jpg)    
 
-La abrimos y al parecer no hay nada interesante.  
+Abrimos la imagen, pero aparentemente no contiene nada interesante.  
 
 ![A](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/amor/A_8.jpg)     
 
-Entonces usaremos la herramienta **exiftool"** para ver si hay algun metadato que nos puede servir, pero parece que no.  
+Entonces utilizamos la herramienta **exiftool** para inspeccionar los metadatos de la imagen, pero no parece haber nada útil que podamos aprovechar.  
 
 ![A](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/amor/A_9.jpg)     
 
-Entonces probamos con la herramienta **steghide**.  
-Le damos al comando:  
+Entonces probamos con la herramienta steghide.  
+Ejecutamos el siguiente comando:  
 
 `sudo steghide extract -sf imagen.jpg`  
 
 ![A](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/amor/A_10.jpg)   
 
-Vemos que nos extrae un fichero nombrado **secret.txt**.  
-Lo abrimos y al parecer esta podría ser una contraseña codificada en base64.  
+Vemos que se ha extraído un archivo llamado **secret.txt**.   
+Al abrirlo, parece que contiene una contraseña codificada en base64.  
 
 ![A](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/amor/A_11.jpg)     
 
-Por lo tanto la decodificamos con el comando:  
+Por lo tanto, la decodificamos con el siguiente comando:  
 
 `echo 'ZXNsYWNhc2FkZXBpbnlwb24=' |base64 -d`  
 
 ![A](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/amor/A_12.jpg)  
 
-Perfecto!  
-Ahora miramos en el /etc/passwd si hay algún otro usuario a parte de carlota.  
+¡Perfecto!   
+Ahora revisamos el archivo **/etc/passwd** para ver si hay algún otro usuario además de **carlota**.  
 
 ![A](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/amor/A_13.jpg)  
 
-Bien!  
-Probamos la contraseña recien descubierta con el usuario oscar...y funciona!    
+¡Bien!   
+Probamos la contraseña recién descubierta con el usuario **oscar**, ¡y funciona!  
 
 ![A](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/amor/A_14.jpg)    
 
-Ahora le damos al comando `sudo -l`.  
+Ahora ejecutamos el comando `sudo -l`.  
 
 ![A](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/amor/A_15.jpg)      
 
-Bien, miramos en la web de GTFOBins si y como podemos abusar de este binario para escalar de privilegios.  
+Bien, revisamos la web de GTFOBins para ver si y cómo podemos abusar de este binario para escalar privilegios.  
 
 ![A](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/amor/A_16.jpg)       
 
-Entonces ejecutaremos el comando:    
+Entonces ejecutaremos el siguiente comando:  
 
-`sudo ruby -e 'exec "/bin/sh"'` y listo!  
+`sudo ruby -e 'exec "/bin/sh"'` ¡y listo!  
 
-Ya somos root!  
+¡Ya somos root!  
 
 ![A](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/amor/A_17.jpg)         
 
