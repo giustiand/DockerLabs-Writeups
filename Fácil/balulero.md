@@ -20,79 +20,79 @@ Empezamos con un escaneo de los puertos.
 
 ![B](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/balulero/B_1.jpg)   
 
-Tenemos dos puertos abiertos, el 22 y el 80.  
-Echamos un vistazo a la web a ver si hay algo interesante.   
+Tenemos dos puertos abiertos: el 22 y el 80.   
+Echamos un vistazo a la web para ver si hay algo interesante.  
 
 ![B](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/balulero/B_2.jpg)    
 
-A primera vista no hay nada interesante.  
-Miramos si hay algo en el código fuente.  
+A primera vista, no hay nada interesante.   
+Revisamos si hay algo en el código fuente.  
 
 ![B](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/balulero/B_3.jpg)   
 
-Como podemos ver hay uno **script.js**, probamos a ver si hay algo interesante por allí.   
-Efectivamente hay un comentario que nos debería llamar a la atencíon.  
+Como podemos ver, hay un **script.js**. Probamos a ver si hay algo interesante allí.    
+Efectivamente, hay un comentario que debería llamarnos la atención.  
 
 ![B](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/balulero/B_4.jpg)    
 
-Mirmaos enteonces la página .env_de_baluchingon  
+Veamos entonces la página **.env_de_baluchingon**.  
 
 ![B](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/balulero/B_5.jpg)      
 
-Perfecto! 
-Ya tenemos un nombre de usuario y una contraseña, por lo tanto podemos probar a hacer login atráves de ssh.  
+¡Perfecto!    
+Ya tenemos un nombre de usuario y una contraseña, por lo tanto, podemos intentar iniciar sesión a través de SSH.  
 
 # Explotación y escalada de privilegios  
 
-Perfecto! 
-Ya tenemos un nombre de usuario y una contraseña, por lo tanto podemos probar a hacer login atráves de ssh.  
+¡Perfecto!  
+Ya tenemos un nombre de usuario y una contraseña, por lo tanto, podemos intentar iniciar sesión a través de SSH.  
 
 ![B](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/balulero/B_6.jpg)   
 
-Listo!  
-Estamos dentro!   
-Si damos el comando `sudo -l` podemos ver que podemos ejecutar, con el usuario **chocolate**, el binario php sin necesitar una password.  
-Por lo tanto mirammos en GTFOBins si podemos encontrar algo que podemos utilizar.  
+¡Listo!  
+Estamos dentro.  
+Si ejecutamos el comando `sudo -l`, podemos ver que podemos ejecutar, con el usuario **chocolate**, el binario **php** sin necesidad de una contraseña.  
+Por lo tanto, consultamos GTFOBins para ver si encontramos algo que podamos utilizar.  
 
 ![B](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/balulero/B_7.jpg)    
 
-Ahora seguimos los pasos indicados y deberáimos poder escalar al usuario chocolate.  
+Ahora seguimos los pasos indicados y deberíamos poder escalar al usuario **chocolate**.  
 
 ![B](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/balulero/B_8.jpg)      
 
-Una vez dentro con el usuario chocolate tenenmos que intentar a escalar a root.  
-Con los comandos `sudo -l` y ``find / -perm -4000 2>/dev/null` no encontramos nada interesante.  
+Una vez dentro con el usuario **chocolate**, tenemos que intentar escalar a root.    
+Con los comandos `sudo -l` y `find / -perm -4000 2>/dev/null`, no encontramos nada interesante.  
 
 ![B](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/balulero/B_9.jpg)   
 
-Por lo tanto lo que se me ocurre es subir a la maquina victima el archivo **pspy64** para ver si hay algun proceso de que podemos abusar.  
-Entonces me montaré un servidor web en python en mi kali y descargaré el fichero en la maquina victima.  
+Por lo tanto, se me ocurre subir a la máquina víctima el archivo **pspy64** para ver si hay algún proceso del que podamos abusar.    
+Entonces, montaré un servidor web en Python en mi Kali y descargaré el archivo en la máquina víctima.  
 
 ![B](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/balulero/B_10.jpg)     
 
 ![B](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/balulero/B_11.jpg)     
 
-Le damos los permisos de ejecucíon y lo lanzamos.  
+Le damos permisos de ejecución y lo lanzamos.  
 
 ![B](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/balulero/B_12.jpg)    
 
-Como podemos ver hay uno **script.php** que se ejecuta de forma recurrente.  
+Como podemos ver, hay un **script.php** que se ejecuta de forma recurrente.  
 
 ![B](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/balulero/B_13.jpg)   
 
-Miramos a ver que contiene el script.   
+Revisamos qué contiene el script.  
 
 ![B](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/balulero/B_14.jpg)     
 
-Ya que tenemos los permisos para borrar el fichero lo que se me ocurre es subir a la carpeta /tmp de la maquina victima una revershell en php.  
-Por lo tanto me montaré otra vez el servidor en python y subiré una reverse shell (podemos ir a la web pentestmonkey.  
+Dado que tenemos permisos para borrar el archivo, se me ocurre subir una reverse shell en PHP a la carpeta **/tmp** de la máquina víctima.   
+Por lo tanto, montaré nuevamente el servidor en Python y subiré la reverse shell (podemos consultar la web de Pentest Monkey).  
 
-Una vez modificado el fichero y haberlo subido a la máquina victima lo que tenemos que hacer es borrar el fichero script.php que se encuentra en /opt y sustituirlo con el nuestro fichero que contiene la reverse shell (llamandolo siempre con el nombre **script.php**)  
+Una vez modificado el archivo y subido a la máquina víctima, lo que tenemos que hacer es borrar el archivo **script.php** que se encuentra en **/opt** y sustituirlo con nuestro archivo que contiene la reverse shell, asegurándonos de nombrarlo siempre como **script.php**.  
 
 ![B](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/balulero/B_15.jpg)       
 
-Ahora solo tendremos que abrir una shell en nuestra máquina kali y ponernos a la escucha y en unos segundo...listo!  
-Somos root!  
+Ahora solo tendremos que abrir una shell en nuestra máquina Kali y ponernos a la escucha, y en unos segundos... ¡listo!    
+¡Somos root!  
 
 ![B](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/balulero/B_16.jpg)         
 
