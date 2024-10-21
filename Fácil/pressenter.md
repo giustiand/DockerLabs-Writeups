@@ -20,79 +20,79 @@ Empezamos con un escaneo de los puertos.
 
 ![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/pressenter/P_1.jpg)   
 
-Tenemos un solo puerto abierto, el 80.  
-Miramos la web a ver si encontramos algo util.  
-En la página como tal no veo nada interesante.  
+Solo tenemos un puerto abierto: el 80.  
+Revisamos el sitio web para ver si encontramos algo útil.  
+En la página en sí no veo nada interesante.  
 
 ![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/pressenter/P_2.jpg)   
 
-Echamos un ojo al código fuente.  
+Examinamos el código fuente.  
 
 ![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/pressenter/P_3.jpg)    
 
-Como podmeos ver hay un enlace que punta al dominio **pressenter.hl**.  
-Añnadimos entonces esta entrada en el fichero /etc/hosts y miramos a ver que sale.  
+Como podemos ver, hay un enlace que apunta al dominio **pressenter.hl**.  
+Añadimos, entonces, esta entrada en el archivo /etc/hosts y revisamos qué sucede.  
 
 ![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/pressenter/P_4.jpg)    
 
-Buenos, estamos frente a otra web hecha en Wordpress.  
+Bien, estamos frente a otro sitio web creado en WordPress.  
 
 ![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/pressenter/P_5.jpg)      
 
-Entonces prodamos a usar la herramiente **wpscan** para intentar enumerar usuarios, tema y plugin vulnerables.  
-Para ello utilizamos el comando:  
+Entonces, procedemos a utilizar la herramienta wpscan para intentar enumerar usuarios, temas y plugins vulnerables.  
+Para ello, utilizamos el siguiente comando:  
 
 `sudo wpscan --url http://pressenter.hl --enumerate u,p,t`  
 
-Tenemos 2 usuarios, y lo que podemos hacer es un ataque de fuerza bruta para ver si logramos obtener una contraseña valida.  
+Tenemos dos usuarios, y lo que podemos hacer es un ataque de fuerza bruta para ver si logramos obtener una contraseña válida.  
 
 ![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/pressenter/P_6.jpg)      
 
-Para ello damos el comando:  
+Para ello, introducimos el siguiente comando:  
 
 `sudo wpscan --url http://pressenter.hl/ --passwords /usr/share/wordlists/rockyou.txt --usernames pressi,hacker`  
 
-Y tras esperar unos minutos encontramos una contraseña.  
+Y después de esperar unos minutos, encontramos una contraseña.   
 
 ![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/pressenter/P_7.jpg)   
 
 # Explotación
 
-Entonces nos logeamos en el panel wp-login.php.  
+Entonces, iniciamos sesión en el panel wp-login.php.  
 
 ![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/pressenter/P_8.jpg)   
 
-En la scansión anterior de **wpscan** hemos podido apreciar que el directory listing está habilitado, es decir, podemos navegar a esta ruta.  
+En el escaneo anterior de wpscan, hemos podido observar que el directorio está habilitado, es decir, podemos navegar a esta ruta:  
 
 http://pressenter.hl/wp-content/themes/twentytwentyfour/  
 
 ![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/pressenter/P_9.jpg)   
 
-Por lo tanto lo que intentaremos hacer es modificar el fichero **funcion.php** para obtener una reverse shell.  
-Para ello vamos al menu "Herramientas" luego a "Editor de archivos de tema" y por ultimo seleccionaremos el fichero **function.php**.  
+Por lo tanto, lo que intentaremos hacer es modificar el archivo **functions.php** para obtener una reverse shell.   
+Para ello, vamos al menú 'Herramientas', luego a 'Editor de archivos del tema' y, por último, seleccionaremos el archivo **functions.php**.   
 
 ![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/pressenter/P_10.jpg)     
 
-Lo actualizamos, y ahora solo tendremos que ponernos a la escucha en la nuestra maquina kali y abrir el fichero function.php.  
+Lo actualizamos, y ahora solo tendremos que ponernos a la escucha en nuestra máquina Kali y abrir el archivo **functions.php**.  
 
 ![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/pressenter/P_11.jpg)       
 
-Perfecto, ahora haremos un tratamiento de la shell para poder trabajar más comodamente.  
+Perfecto, ahora realizaremos un tratamiento de la shell para poder trabajar más cómodamente.  
 
 ![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/pressenter/P_12.jpg)     
 
 # Escalada de privilegios  
 
-Probamos con los típicos comandos `sudo -l` y `find / -perm -4000 2>/dev/null` pero no vemos nada interesante.  
+Probamos con los típicos comandos `sudo -l` y `find / -perm -4000 2>/dev/null` pero no encontramos nada interesante.   
 
 ![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/pressenter/P_13.jpg)  
 
-Probamos a subir a la maquina victima **pspy64** pero no obtenemos nada interesante.  
-Entonces probamos a subir **linpeas** y aquí sí que encontramos información valiosa.  
+Intentamos subir a la máquina víctima pspy64, pero no obtuvimos nada interesante.   
+Entonces, probamos a subir linpeas y aquí sí encontramos información valiosa.   
 
 ![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/pressenter/P_14.jpg)    
 
-Con las credenciales obtenidas nos logeamos a sql y vemos si podemos sacar algo util.  
+Con las credenciales obtenidas, iniciamos sesión en SQL y verificamos si podemos obtener algo útil.  
 
 `mysql -u admin -prooteable -h 127.0.0.1`  
 
@@ -100,29 +100,29 @@ Con las credenciales obtenidas nos logeamos a sql y vemos si podemos sacar algo 
 
 ![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/pressenter/P_16.jpg)     
 
-Bien!  
-Hemos podido sacar la password de un usuario que se llama **enter**.  
-Vamos a comprobar si en la maquina hay algun usuario con este nombre y sí que hay!  
-Entonces probamos a ver si podemos cambiar de usuario.   
+¡Bien!  
+Hemos logrado obtener la contraseña de un usuario llamado **enter**.  
+Vamos a comprobar si en la máquina hay algún usuario con este nombre, ¡y efectivamente hay!  
+Entonces, probamos a ver si podemos cambiar de usuario.  
 
 ![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/pressenter/P_17.jpg)      
 
-Perfecto!  
-Hacemos un `sudo -l` y vemos cosas que nos vendrán bien para escalarnos a root.  
+¡Perfecto!  
+Ejecutamos `sudo -l` y encontramos información que nos será útil para escalar a root.   
 
 ![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/pressenter/P_18.jpg)  
 
-Si hacemos un `ls` como usuario enter vemos que hay un fichero que se llama **user.txt**  
+Si ejecutamos `ls` como usuario enter, vemos que hay un archivo llamado **user.txt**.  
 
 ![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/pressenter/P_19.jpg)    
 
-Ahora que sabemos que podemos utilizar "cat" con privilegios de root lo que podemos intentar hacer es ver si existe un fichero nombrado **root.txt** en la home de root y leer su contenido.  
+Ahora que sabemos que podemos utilizar cat con privilegios de root, lo que podemos intentar hacer es verificar si existe un archivo llamado **root.txt** en el directorio home de root y leer su contenido.  
 
 ![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/pressenter/P_20.jpg)     
 
 Esto no nos sirve.  
-Después de pensar y realmente no encontrar ninguna forma para poder elevear privilegios, como ùltima cosa, casi sin creermelo, pruebo a utilizar la password de enter...y listo!  
-Somos root!  
+Después de reflexionar y no encontrar realmente ninguna forma de elevar privilegios, como última opción, casi sin creerlo, pruebo a utilizar la contraseña de enter... ¡y listo!  
+¡Somos root!  
 
 ![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/pressenter/P_21.jpg)      
 
