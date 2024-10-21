@@ -20,31 +20,31 @@ Empezamos con un escaneo de los puertos.
 
 ![PM](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/peque%C3%B1as_mentirosas/PM_1.jpg) 
 
-Tenemos 2 puertos abiertos, el 22 y el 80. 
-Echamos un ojo a lo que corre en el puerto 80.  
+Tenemos 2 puertos abiertos, el 22 y el 80.  
+Revisemos lo que está funcionando en el puerto 80.  
 
 ![PM](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/peque%C3%B1as_mentirosas/PM_2.jpg)  
 
-Vale, intentamos hacer un poco de fuzzing web para ver si podemos sacar algo util.  
-Para ello le damos al comamdo:  
+De acuerdo, intentamos hacer un poco de fuzzing web para ver si podemos obtener algo útil.  
+Para ello, ejecutamos el comando:  
 
 `sudo gobuster dir -u http://172.17.0.2 -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt`  
 
 ![PM](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/peque%C3%B1as_mentirosas/PM_3.jpg)      
 
-Bueno, no sacamos nada de nada.  
-Trás razonar un rato, volvemos a analizar la web, y probamos a ver si **a** es el nobre de un posible usuario.  
-Intentaremos hacer un ataque de fuerza bruta contra ssh.  
+Bueno, no obtuvimos nada en absoluto.   
+Después de reflexionar un rato, volvemos a analizar el sitio web y probamos si **a** es el nombre de un posible usuario.   
+Intentaremos realizar un ataque de fuerza bruta contra SSH.    
 Ejecutaremos el comando:  
 
 `sudo hydra -l a -P /usr/share/wordlists/rockyou.txt ssh://172.17.0.2`  
 
 ![PM](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/peque%C3%B1as_mentirosas/PM_4.jpg)   
 
-Listo! 
-Ya tenemos un usuario y contraseña valido. 
-Entramos por ssh.  
-Una vez dentro probamos los tipicos comandos para intentar escalar de privilegios:  
+¡Listo!   
+Ya tenemos un usuario y contraseña válidos.   
+Entramos por SSH.   
+Una vez dentro, probamos los comandos típicos para intentar escalar privilegios:  
 
 `sudo -l`  
 
@@ -52,40 +52,40 @@ Una vez dentro probamos los tipicos comandos para intentar escalar de privilegio
 
 ![PM](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/peque%C3%B1as_mentirosas/PM_5.jpg)     
 
-Vale, deberemos ver si hay otra forma. 
-Miramos a ver si hay otros usuarios en la máquina.  
-Le damos a `cat /etc/passwd` y vemos que nos encontra otro usuario nombrado **spencer**.  
+De acuerdo, debemos buscar otra forma.   
+Verificamos si hay otros usuarios en la máquina.   
+Ejecutamos `cat /etc/passwd` y encontramos otro usuario llamado **spencer**.  
 
 ![PM](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/peque%C3%B1as_mentirosas/PM_6.jpg)       
 
-Intentaremos otra vez a realizar un ataque de fuerza bruta contra ssh.  
+Intentaremos nuevamente realizar un ataque de fuerza bruta contra SSH.  
 
 `sudo hydra -l spences -P /usr/share/wordlists/rockyou.txt ssh://172.17.0.2`    
 
 ![PM](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/peque%C3%B1as_mentirosas/PM_7.jpg)        
 
-Perfecto! 
+¡Perfecto!   
 Ahora cambiaremos de usuario con el comando `su spencer`.  
 
 ![PM](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/peque%C3%B1as_mentirosas/PM_8.jpg)       
 
-Ahora intentamos escalar privilegios para convertirnos en root.  
-Le damos al comando `sudo -l`  
+Ahora intentamos escalar privilegios para convertirnos en root.    
+Ejecutamos el comando `sudo -l`.  
 
 ![PM](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/peque%C3%B1as_mentirosas/PM_9.jpg)    
 
-Ahora miraremos en la web de GTFOBins si podemos abusar de este binarios para convertirnos en root.  
+Ahora revisaremos en la web de GTFOBins si podemos aprovechar este binario para convertirnos en root.  
 
 ![PM](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/peque%C3%B1as_mentirosas/PM_10.jpg)    
 
-Ahora probaremos a dar el comando:  
+Ahora probaremos a ejecutar el comando:  
 
 `sudo /usr/bin/python3 -c 'import os; os.system("/bin/sh")'`  
 
 ![PM](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/peque%C3%B1as_mentirosas/PM_11.jpg)    
 
-Y listo!  
-Ya somos root!  
+¡Y listo!   
+¡Ya somos root!  
 
 
 
