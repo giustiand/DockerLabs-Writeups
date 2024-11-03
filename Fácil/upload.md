@@ -2,7 +2,7 @@
 
 # Enumeración
 
-Empezamos con un escaneo de los puertos.
+Comenzamos con un escaneo de los puertos.  
 
 `sudo nmap -p- --open -sC -sS -sV --min-rate=5000 -n -Pn -vvv 172.17.0.2 -oN Upload`  
 
@@ -20,45 +20,46 @@ Empezamos con un escaneo de los puertos.
 
 ![U](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/upload/U_1.jpg)   
 
-Tenemos solamente un puerto abierto, el 80.  
-Echamos un ojo para ver que hay.  
+Tenemos únicamente un puerto abierto, el 80.  
+Echamos un vistazo para ver qué hay.    
 
 ![U](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/upload/U_2.jpg)     
 
-Probamos a subir una reverse shell en php para ver si nos deja.  
+Intentamos subir una reverse shell en PHP para ver si es posible.  
 
 ![U](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/upload/U_3.jpg)    
 
 ![U](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/upload/U_4.jpg)    
 
-Perfecto! 
-Ahora tendremos que hacer un poco de fuzzing web a la busqueda de una carpeta donde se pueda haber guardado este fichero.  
-Para ello ejecutamos el comando:  
+¡Perfecto!   
+Ahora realizaremos un poco de fuzzing web en busca de una carpeta donde se pueda haber guardado este archivo.  
+Para ello, ejecutamos el siguiente comando:  
 
-`sudo gobuster dir -u http://172.17.0.2/ -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt`
+`sudo gobuster dir -u http://172.17.0.2/ -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt`  
 
 ![U](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/upload/U_5.jpg)   
 
-Listo!   
-Ahora miramos la ruta http://172.17.0.2/uploads y nos ponemos a la escucha en nuestra máquina kali y una vez hecho abrimos el fichero reverse_shell.php.  
+¡Listo!  
+Ahora revisamos la ruta http://172.17.0.2/uploads y nos ponemos a la escucha en nuestra máquina Kali.  
+Una vez hecho esto, abrimos el archivo reverse_shell.php.  
 
 ![U](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/upload/U_6.jpg)     
 
-Bien!  
-Ahora podemos dar el comando `sudo -l` para ver si podemos aproecharnos de algún fichero para escalar de privilegios.  
+Bien.  
+Ahora podemos ejecutar el comando `sudo -l` para ver si podemos aprovechar algún archivo para escalar privilegios.  
 
 ![U](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/upload/U_7.jpg)   
 
-Miraremos entonces la web GTFOBins.  
+Entonces, consultaremos la web GTFOBins.  
 
 ![U](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/upload/U_8.jpg)     
 
-Ahora simplemente ejecutaremos el comando `sudo -u root /usr/bin/env /bin/bash`
+Ahora simplemente ejecutaremos el comando `sudo -u root /usr/bin/env /bin/bash`  
 
 ![U](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/upload/U_9.jpg)     
 
-Y listo!  
-Ya somos root!  
+¡Y listo!   
+Ahora somos root.  
 
 
 
