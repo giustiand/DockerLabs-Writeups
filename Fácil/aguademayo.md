@@ -63,6 +63,8 @@ Intentemos entonces conectarnos por SSH.
 
 ¡Perfecto, estamos dentro!  
 
+# Escalada de privilegios
+
 Ahora ejecutaremos el comando `sudo -l` para ver si podemos escalar privilegios.  
 
 ![A](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/aguademayo/A_10.jpg)     
