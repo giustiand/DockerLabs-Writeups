@@ -50,6 +50,7 @@ Echemos un vistazo al recurso que hemos descubierto.
 ![A](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/aguademayo/A_6.jpg)      
 
 Descarguemos la imagen para ver si con herramientas como **exiftool** o **steghide** podemos descubrir alguna información interesante.  
+
 ![A](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/aguademayo/A_7.jpg)     
 
 ![A](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/aguademayo/A_8.jpg)   
