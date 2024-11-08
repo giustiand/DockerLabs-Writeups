@@ -80,6 +80,18 @@ Perfecto, lo que haremos será modificar los permisos del archivo `/etc/passwd` 
 
 ![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/anonymous_pingu/P_14.jpg)     
 
+Ahora que tenemos los permisos necesarios, ejecutaremos el siguiente comando:
+
+`sed -i 's/\(^root\):x:/\1::/' /etc/passwd` y al ejecutar `su`, ¡listo! 
+¡Ya somos root!    
+
+![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/anonymous_pingu/P_15.jpg)     
+
+
+
+
+
+
 
 
 
