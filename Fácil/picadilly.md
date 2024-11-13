@@ -66,7 +66,7 @@ Perfecto, intentemos iniciar sesión con el usuario **mateo** y la contraseña q
 
 ![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/picadilly/P_9.jpg)  
 
-Recibimos un mensaje de error. 
+Recibimos un mensaje de error.   
 Probamos con las otras contraseñas que habíamos descifrado, pero no tuvimos éxito. 
 Dado que la única que parece tener sentido es **easycrxazy**, intentaremos con **easycrazy**.  
 
