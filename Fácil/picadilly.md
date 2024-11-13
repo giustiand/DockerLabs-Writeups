@@ -34,11 +34,9 @@ Al buscar en internet, podemos constatar que la contraseña está cifrada con el
 Entonces, utilizaremos un descifrador en línea para decodificar la contraseña.  
 Usaremos el sitio web [https://www.dcode.fr/cifrado-cesar](https://www.dcode.fr/cifrado-cesar).  
 
-![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/picadilly/P_3.jpg)   
+![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/picadilly/P_4.jpg)   
 
 Tenemos una lista de posibles contraseñas, aunque la única que parece tener sentido es la primera.  
-
-![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/picadilly/P_4.jpg)   
 
 Ahora echemos un vistazo para ver qué hay en el puerto 443.  
 
