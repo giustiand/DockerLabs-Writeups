@@ -51,7 +51,8 @@ Usaremos la herramienta **wfuzz** para realizar el fuzzing.
 
 ![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/picadilly/P_6.jpg)   
 
-Perfecto, hemos encontrado lo que buscábamos. Ahora nos pondremos a escuchar en nuestra máquina Kali y ejecutaremos el archivo .php, que ahora sabemos que se encuentra en la carpeta **uploads**.
+Perfecto, hemos encontrado lo que buscábamos.  
+Ahora nos pondremos a escuchar en nuestra máquina Kali y ejecutaremos el archivo .php, que ahora sabemos que se encuentra en la carpeta **uploads**.  
 
 ![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/picadilly/P_7.jpg)   
 
@@ -71,7 +72,8 @@ Dado que la única que parece tener sentido es **easycrxazy**, intentaremos con 
 
 ![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/picadilly/P_10.jpg)    
 
-¡Genial! ¡Ha funcionado! Ahora que tenemos acceso, podemos continuar con los siguientes pasos.  
+¡Genial! ¡Ha funcionado!  
+Ahora que tenemos acceso, podemos continuar con los siguientes pasos.  
 
 # Escalada de privilegios  
 
