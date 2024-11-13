@@ -92,6 +92,8 @@ CMD="/bin/sh"
 sudo php -r "system('$CMD');"
 ```
 
+![P](https://github.com/giustiand/DockerLabs-Writeups/blob/main/F%C3%A1cil/images/picadilly/P_13.jpg)   
+
 ¡Y listo!  
 ¡Ahora somos root! 🎉  
 
