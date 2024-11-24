@@ -91,7 +91,7 @@ Descubrimos que esta versión es vulnerable (CVE-2023-41362 - MyBB ACP RCE).
 Descargamos el exploit que encontramos en GitHub en la siguiente dirección: [https://github.com/SorceryIE/CVE-2023-41362_MyBB_ACP_RCE](https://github.com/SorceryIE/CVE-2023-41362_MyBB_ACP_RCE).  
 Ejecutamos el script con el comando:  
 
-`python3 exploit.py http://panel.mybb.dl admin babygirl`  
+`python3 exploit.py http://panel.mybb.dl admin babygirl`   
 
 e intentamos enviarnos una reverse shell.  
 Vamos al sitio revshells.com [https://www.revshells.com/](https://www.revshells.com/) y en este caso funcionará la reverse shell en Perl.  
