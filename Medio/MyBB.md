@@ -18,5 +18,5 @@ Empezamos con un escaneo de los puertos.
 
 # Resultado escaneo  
 
-![M](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/MyBB/M_1.jpg)     
+![M](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/MyBB/M_1.png)     
 
