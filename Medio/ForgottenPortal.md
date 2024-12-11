@@ -109,7 +109,7 @@ Ejecutamos el comando sugerido y...
 
 ![F](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/ForgottenPortal/FP_20.jpg)     
 
-¡Listo! 
+¡Listo!  
 ¡Ya somos root!
 
 
