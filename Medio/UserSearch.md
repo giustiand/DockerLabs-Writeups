@@ -35,7 +35,7 @@ Si intentamos usar estas credenciales para acceder a través de SSH, no funciona
 
 ![U](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/UserSearch/U_4.jpg)   
 
-Lo que podemos hacer es verificar si existe algún tipo de vulnerabilidad de SQL Injection en este panel web, y efectivamente, al ingresar la cadena **admin'--'**, nos son devueltos otros dos usuarios.  
+Lo que podemos hacer es verificar si existe algún tipo de vulnerabilidad de SQL Injection en este panel web, y efectivamente, al ingresar la cadena **admin'--'**, nos son devueltos otros dos usuarios más.  
 
 ![U](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/UserSearch/U_5.jpg)    
 
@@ -65,7 +65,7 @@ Así que ahora podemos ejecutar el comando `sudo /usr/bin/python3 /home/kvzlx/sy
 
 ![U](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/UserSearch/U_9.jpg)    
 
-¡Listo!
+¡Listo!  
 ¡Ya somos root!
 
 
