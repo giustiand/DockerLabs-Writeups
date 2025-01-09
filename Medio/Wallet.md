@@ -118,6 +118,33 @@ Lo que haremos será copiar el archivo a la carpeta `/tmp` y transferirlo con el
 Entonces, si ahora visitamos la URL `http://panel.wallet.dl/images/uploads/logos/`, encontraremos nuestro archivo ZIP y podremos descargarlo en nuestra máquina.  
 Una vez descargado, utilizaremos las utilidades **zip2john** y **john** para intentar descubrir la contraseña.  
 
+![W](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Wallos/W_22.jpg)     
+
+Perfecto, ahora descomprimamos el archivo ZIP y veamos su contenido.  
+
+![W](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Wallos/W_23.jpg)   
+
+Perfecto, hemos obtenido un nombre de usuario y una contraseña.  
+Iniciemos sesión entonces como el usuario **pinguino**.  
+
+![W](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Wallos/W_24.jpg)   
+
+Ahora ejecutemos el comando `sudo -l` para verificar si podemos escalar a root.  
+
+![W](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Wallos/W_25.jpg)  
+
+Perfecto, podemos utilizar la utilidad `sed` para modificar el archivo `/etc/passwd` eliminando la contraseña de root.  
+Podemos hacerlo ingresando el siguiente comando:  
+
+`sudo sed -i 's/^root:x:/root::/' /etc/passwd`  y...
+
+![W](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Wallos/W_26.jpg)   
+
+¡Listo!  
+¡Ya somos root!
+
+
+
 
 
 
