@@ -102,6 +102,19 @@ Ejecutamos el comando sugerido y nos convertimos en el usuario pylon.
 
 ![W](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Wallos/W_18.jpg)     
 
+Ejecutamos el comando `ls` y vemos que hay una carpeta interesante llamada **secretitotraviesito.zip**.  
+
+![W](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Wallos/W_19.jpg)  
+
+Intentamos extraer su contenido, pero se nos solicita una contraseña.  
+
+![W](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Wallos/W_20.jpg)  
+
+Por lo tanto, debemos intentar transferir este archivo a nuestra máquina para intentar descifrar la contraseña.    
+Lo que haremos será copiar el archivo a la carpeta `/tmp` y transferirlo con el usuario **www-data** a la carpeta `/`, donde previamente ejecutamos nuestra reverse shell.  
+
+
+
 
 
 
