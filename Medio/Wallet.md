@@ -113,6 +113,14 @@ Intentamos extraer su contenido, pero se nos solicita una contraseña.
 Por lo tanto, debemos intentar transferir este archivo a nuestra máquina para intentar descifrar la contraseña.    
 Lo que haremos será copiar el archivo a la carpeta `/tmp` y transferirlo con el usuario **www-data** a la carpeta `/`, donde previamente ejecutamos nuestra reverse shell.  
 
+![W](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Wallos/W_21.jpg)    
+
+Entonces, si ahora visitamos la URL `http://panel.wallet.dl/images/uploads/logos/`, encontraremos nuestro archivo ZIP y podremos descargarlo en nuestra máquina.  
+Una vez descargado, utilizaremos las utilidades **zip2john** y **john** para intentar descubrir la contraseña.  
+
+
+
+
 
 
 
