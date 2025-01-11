@@ -53,7 +53,7 @@ Creamos un fichero llamado **users.txt** con los 2 nombres de usuario que acabam
 
 Probamos a conectarnos.  
 
-![I](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/InclusionI_8.png)   
+![I](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Inclusion/I_8.png)   
 
 ¡Perfecto!  
 ¡Estamos dentro!  
@@ -69,8 +69,7 @@ Lo que podemos hacer es cargar una utilidad en la máquina víctima para intenta
 
 ![I](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Inclusion/I_10.png)  
 
-Ahora todo lo que tenemos que hacer es cargar el diccionario rockyou.txt (`scp /usr/share/wordlists/rockyou.txt ssh manchi@172.17.0.2:/tmp 
-`) en la máquina víctima y ejecutar el script.   
+Ahora todo lo que tenemos que hacer es cargar el diccionario rockyou.txt (`scp /usr/share/wordlists/rockyou.txt ssh manchi@172.17.0.2:/tmp`) en la máquina víctima y ejecutar el script.   
 
 ![I](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Inclusion/I_11.png)  
 ![I](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Inclusion/I_12.png)  
