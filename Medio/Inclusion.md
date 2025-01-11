@@ -84,7 +84,7 @@ Consultemos el sitio web [GTFOBins] (https://gtfobins.github.io/gtfobins/php/#su
 
 ![I](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Inclusion/I_14.png)    
 
-Ejecutamos los comandos como se sugiere y ...  
+Ejecutamos los comandos como se sugiere y...  
 
 ![I](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Inclusion/I_15.png)   
 
