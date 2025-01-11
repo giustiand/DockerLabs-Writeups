@@ -80,6 +80,19 @@ A continuación, iniciamos sesión como usuario vendedor para ver si podemos esc
 ![I](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Inclusion/I_13.png)    
 
 Ejecutamos `sudo -l` y vemos que podemos abusar del binario **php**.  
+Consultemos el sitio web [GTFOBins] (https://gtfobins.github.io/gtfobins/php/#sudo) para ver cómo abusar de este binario.  
+
+![I](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Inclusion/I_14.png)    
+
+Ejecutamos los comandos como se sugiere y ...  
+
+![I](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Inclusion/I_15.png)   
+
+¡Listo!  
+¡Ya somos root!  
+
+
+
 
 
 
