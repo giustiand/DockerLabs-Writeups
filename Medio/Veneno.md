@@ -77,7 +77,17 @@ Bien, estamos dentro.
 Ahora haremos el tratamiento de la shell para poder trabajar de forma más comoda.  
 
 ![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneno/V_12.png) 
-![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneno/V_13.png)  
+![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneno/V_13.png)    
+
+Hacemos un ls para listar los ficheros de la carpeta donde nos encontramos y vemos que hay un fichero interesante.  
+
+![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneno/V_14.png)    
+
+Buscamos entonces si hay algun fichero en formato texto que nos podría venir bien.  
+
+![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneno/V_15.png)      
+
+
 
 
 
