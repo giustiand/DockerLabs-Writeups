@@ -69,6 +69,24 @@ Ahora modificaremos el campo User Agent con la cadena:
 
 ![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneno/V_10.png)     
 
+Ahora añadiremos un **&cmd** al final pasandole una reverse shell en php url encodeada y nos pondremos a la escucha en nuesta maquina atacante.     
+
+![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneno/V_11.png)   
+
+Bien, estamos dentro.  
+Ahora haremos el tratamiento de la shell para poder trabajar de forma más comoda.  
+
+![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneno/V_12.png) 
+![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneno/V_13.png)  
+
+
+
+
+
+
+
+
+
 
 
 
