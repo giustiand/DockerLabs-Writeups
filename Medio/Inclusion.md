@@ -35,7 +35,7 @@ Descubrimos un nuevo recurso, **shop**, echemos un vistazo.
 ![I](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Inclusion/I_4.png)  
 
 Nos llama la atención este estraño mensaje que dice **Error de Sistema: ($_GET['archivo']");**.  
-Intentemos ver si esta página es vulnerable a un ataque LFI (Local File Inclusion) utilizando el parámetro **archive** mostrado en el error.  
+Intentemos ver si esta página es vulnerable a un ataque LFI (Local File Inclusion) utilizando el parámetro **archivo** mostrado en el error.  
 Ejecutamos el comando:  
 
 `wfuzz -c --hc=404 --hl=44 --hw=90 -t 200 -w /usr/share/seclists/Fuzzing/LFI/LFI-Jhaddix.txt -u http://172.17.0.2/shop/index.php?archivo=FUZZ`  
