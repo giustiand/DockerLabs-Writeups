@@ -95,6 +95,47 @@ Bien, ahora abrimos el fichero /etc/passwd para encontrar el usuario.
 
 ![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneno/V_17.png)   
 
+Por fin, iniciamos sesión con el usuario encontrado.  
+
+![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneno/V_18.png)   
+
+Ahora nos movemos a la home del usuario y hacemos un ls -lah podemos ver que hay un montón de carpetas.  
+
+![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneno/V_19.png)  
+
+Lo que podemos hacer es ordenarla por dimensión para ver si encontramos algún contenido.  
+
+
+![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneno/V_20.png)   
+
+Al parecer solo la carpeta 55 parece contener algo.  
+Entramos para ver lo que hay.  
+
+![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneno/V_21.png)   
+
+Bien, lo que haremos serà bajar este fichero a nuestra maquina atacante para ver si se ha aplicado steganografia o algo por el estilo.  
+Lo haremos con scp.  
+
+![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneno/V_22.png)     
+
+Antes de nada lenzamos **exiftool** para ver si podemos sacar algauna informacion interesante.  
+
+![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneno/V_23.png)   
+
+Bueno, non llama la atención esta raya, donde vemos algo que podría ser una contraseña.  
+Probamos a ver si poniendo **pingui1730** podemos convertirnos en root.   
+
+![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneno/V_24.png)   
+
+¡Listo!  
+¡Ya somos root!  
+
+
+
+
+
+
+
 
 
 
