@@ -87,6 +87,16 @@ Buscamos entonces si hay algun fichero en formato texto que nos podría venir bi
 
 ![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneno/V_15.png)      
 
+Abrimos el fichero y descubrimos la contraseña.  
+
+![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneno/V_16.png)   
+
+Bien, ahora abrimos el fichero /etc/passwd para encontrar el usuario.  
+
+![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneno/V_17.png)   
+
+
+
 
 
 
