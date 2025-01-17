@@ -69,29 +69,29 @@ Ahora modificaremos el campo User Agent con la cadena:
 
 ![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneno/V_10.png)     
 
-Ahora añadiremos un **&cmd** al final pasandole una reverse shell en php url encodeada y nos pondremos a la escucha en nuestra maquina atacante.     
+Ahora añadiremos un **&cmd** al final pasando una reverse shell en PHP url codificada y nos pondremos a la escucha en nuestra máquina atacante.    
 
 ![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneno/V_11.png)   
 
 Bien, estamos dentro.  
-Ahora haremos el tratamiento de la shell para poder trabajar de forma más comoda.  
+Ahora haremos el tratamiento de la shell para poder trabajar de forma más cómoda. 
 
 ![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneno/V_12.png) 
 ![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneno/V_13.png)    
 
-Hacemos un ls para listar los ficheros de la carpeta donde nos encontramos y vemos que hay un fichero interesante.  
+Hacemos un `ls` para listar los archivos de la carpeta donde nos encontramos y vemos que hay un archivo interesante.   
 
 ![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneno/V_14.png)    
 
-Buscamos entonces si hay algun fichero en formato texto que nos podría venir bien.  
+Buscamos entonces si hay algún archivo en formato texto que nos podría venir bien.  
 
 ![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneno/V_15.png)      
 
-Abrimos el fichero y descubrimos la contraseña.  
+Abrimos el archivo y descubrimos la contraseña.  
 
 ![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneno/V_16.png)   
 
-Bien, ahora abrimos el fichero /etc/passwd para encontrar el usuario.  
+Bien, ahora abrimos el archivo /etc/passwd para encontrar el usuario.  
 
 ![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneno/V_17.png)   
 
@@ -99,30 +99,30 @@ Por fin, iniciamos sesión con el usuario encontrado.
 
 ![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneno/V_18.png)   
 
-Ahora nos movemos a la home del usuario y hacemos un ls -lah podemos ver que hay un montón de carpetas.  
+Ahora nos movemos a la página de inicio del usuario y realizamos un `ls -lah`, podemos ver que hay una gran cantidad de carpetas.   
 
 ![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneno/V_19.png)  
 
-Lo que podemos hacer es ordenarla por dimensión para ver si encontramos algún contenido.  
+Lo que podemos hacer es ordenarla por tamaño para ver si encontramos algún contenido.  
 
 
 ![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneno/V_20.png)   
 
-Al parecer solo la carpeta 55 parece contener algo.  
-Entramos para ver lo que hay.  
+Al parecer, solo la carpeta 55 parece contener algo.  
+Entramos para ver qué hay.  
 
 ![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneno/V_21.png)   
 
-Bien, lo que haremos serà bajar este fichero a nuestra maquina atacante para ver si se ha aplicado steganografia o algo por el estilo.  
-Lo haremos con scp.  
+Bien, lo que haremos será descargar este archivo a nuestra máquina atacante para ver si se ha aplicado esteganografía o algo por el estilo.  
+Lo haremos con `scp`.    
 
 ![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneno/V_22.png)     
 
-Antes de nada lenzamos **exiftool** para ver si podemos sacar algauna informacion interesante.  
+Antes de nada lenzamos **exiftool** para ver si podemos sacar algauna informacion interesante.    
 
 ![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneno/V_23.png)   
 
-Bueno, non llama la atención esta raya, donde vemos algo que podría ser una contraseña.  
+Bueno, nos llama la atención esta línea, donde vemos algo que podría ser una contraseña.   
 Probamos a ver si poniendo **pingui1730** podemos convertirnos en root.   
 
 ![V](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Veneno/V_24.png)   
