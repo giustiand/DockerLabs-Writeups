@@ -66,28 +66,28 @@ Entonces, utilizaremos **hydra** para realizar un ataque de fuerza bruta contra 
 
 Accedemos entonces con SSH y verificamos si encontramos algún archivo interesante en la carpeta del usuario.  
 
-![D](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/DevTools/D_10.png)     
+![D](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/DevTools/D_11.png)     
 
 Echemos un vistazo al contenido del archivo **nota.txt**.  
 
-![D](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/DevTools/D_11.png)   
+![D](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/DevTools/D_12.png)   
 
 Bien, ahora ejecutemos `sudo -l` para ver si podemos abusar de algún binario.  
 
-![D](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/DevTools/D_12.png)   
+![D](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/DevTools/D_13.png)   
 
 ¡Perfecto!  
 Consultemos entonces [GTFOBins](https://gtfobins.github.io/) y busquemos como proceder.  
 
-![D](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/DevTools/D_13.png)    
+![D](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/DevTools/D_14.png)    
 
 No nos queda más que aprovechar **xxd** para leer el archivo **data.bak** que se encuentra en el directorio raíz y ver su contenido.  
 
-![D](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/DevTools/D_14.png)      
+![D](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/DevTools/D_15png)      
 
 Ahora no nos queda más que cambiar de usuario y...  
 
-![D](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/DevTools/D_15.png)   
+![D](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/DevTools/D_16.png)   
 
 ¡Y listo!  
 ¡Ya somos root!  
