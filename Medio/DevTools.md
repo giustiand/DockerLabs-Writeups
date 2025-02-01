@@ -58,6 +58,7 @@ Entonces, creamos un archivo que contenga las 2 contraseñas encontradas anterio
 
 Entonces, utilizaremos **hydra** para realizar un ataque de fuerza bruta contra el servicio SSH.  
 
+![D](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/DevTools/D_10.png) 
 
 ¡Perfecto! ¡Hemos obtenido una combinación válida!  
 
