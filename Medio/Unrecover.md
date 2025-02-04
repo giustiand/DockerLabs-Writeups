@@ -46,7 +46,7 @@ Bien, hemos obtenido otro usuario y otra contraseña.
 
 # Explotación  
 
-Intentamos acceder a través de SSH con el usuario baluleroh y la contraseña que acabamos de descubrir, pero no podemos.  
+Intentamos acceder a través de SSH con el usuario balulero y la contraseña que acabamos de descubrir, pero no podemos.  
 
 ![U](https://github.com/giustiand/DockerLabs-Writeups/blob/main/Medio/images/Unrecover/U_7.png)      
 
